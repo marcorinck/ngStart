@@ -1,10 +1,18 @@
 #Angular Template Project
 
-This project is a grunt project. You need a running [grunt](http://gruntjs.com/) and [nodeJS](http://nodejs.org/) installation.
+This project is a grunt project. You need a running [grunt](http://gruntjs.com/), [nodeJS](http://nodejs.org/) and
+[bower](https://github.com/bower/bower) installation.
 
 ##Installation
 
+Fork this project on github and/or download this project from github as a ZIP file.
+
+After that, in the project root, issue the following commands:
+
 	npm install
+	bower install
+
+Done.
 
 ##Features
 
