@@ -26,17 +26,18 @@ The following libraries are used:
 * [bower](https://github.com/bower/bower) (for dependeny management of javascript libraries to be loaded in browser)
 * [requireJS](http://requirejs.org/) (for javascript module loading and optimization)
 * [jslint](http://www.jslint.com/) (for quality checking of javascript code)
-* [grunt-manifest](https://github.com/gunta/grunt-manifest) (an appcache manifest will be created while creating a deployable artifact)
+* [grunt-manifest](https://github.com/gunta/grunt-manifest) (an appcache manifest will be created when creating a deployable artifact)
 * [grunt-targethtml](https://github.com/changer/grunt-targethtml) (filtering of html files for deployment on production servers)
-* [grunt-data-uri](https://github.com/ahomu/grunt-data-uri) Embeds all referenced images in css files in the project css file, which is optimized by grunt
-* [karma](http://karma-runner.github.io/) (as a test runner for unit tests and ui tests)
+* [grunt-data-uri](https://github.com/ahomu/grunt-data-uri) Embeds all referenced images in css files in the generated project css file, which is optimized by grunt
+* [karma](http://karma-runner.github.io/) (as a test runner for unit and ui tests)
 
 ###Differences to yeoman
-This project is very similar to [yeoman](http://yeoman.io/). As much as I like yeoman and how cool it is to use it, its also very
-heavy as a technology stack. This project is much lighter (besides node, grunt and bower, you need nothing installed) with
-similar, but hardcoded (and thus limited) features.
+This project is very similar to [yeoman](http://yeoman.io/). As much as I like yeoman and as cool it is to use it, its also very
+heavy as a technology stack. This project is much lighter (besides node, grunt and bower, you don't need to install anything)
+with similar, but hardcoded (and thus limited) features.
 
-There are no features like yeoman generators. Its just a project with as much freedom as **I** (Marco Rinck) like.
+There are no features like yeoman generators. Its just a project with as much freedom and as much boundaries as
+**I** (Marco Rinck) like.
 
 ##Usage
 
@@ -115,20 +116,23 @@ All html files in *src/main/* will be automatically filtered with [grunt-targeth
 
 ###Javascript files
 
-To get the most out of the automated build and of configured requireJS all javascript files must be AMD modules!
+To get the most out of the automated build and of configured requireJS all javascript files must be
+[AMD modules](http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition)!
 
 [src/main/js/app.js](src/main/js/app.js) is your main entrypoint for your own code. Declare a dependency in this file
 to your own code and it will be automatically loaded by requireJS and will be included in the optimized javascript after
-build for production use ( *grunt install* ).
+build for production use ( *grunt install* ). Look for the AboutController dependency if you need an example.
 
-Legacy code from others should be included via bower. You can add additional dependencies in the included [bower.json](bower.json)
-file. If you need to include code that is not available as a bower module, I suggest you put it in
+External packages should be included via bower. You can add additional dependencies in the included [bower.json](bower.json)
+file. You need to run *bower install* after changes to this file.
+
+If you need to include code that is not available as a bower module, I suggest you put it in
 [src/main/external-libs](src/main/external-libs)
 
 Currently there is no automated pick-up from bower dependencies for loading with requireJS. If you want to implement it,
 please go ahead and fix [issue #4](https://github.com/marcorinck/angular-template-project/issues/4). Thanks!
 
-After adding new dependencies you have to configure loading in 2 different files:
+So, after adding new dependencies you have to configure loading of the new files in 2 different project files:
 
 1. [src/main/js/main.js](src/main/js/main.js) - this file is used during local development, please add your dependencies
 to the existing *require.config* object: path for the file (without .js extension) and shim if this dependency needs other
