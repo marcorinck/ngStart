@@ -14,7 +14,7 @@ module.exports = function (grunt) {
 			all: ['<%=pkg.folders.build %>'],
 			css: {
 				src: ['<%= pkg.folders.build + pkg.name + "-" + pkg.version %>/css/*.css',
-						'!<%= pkg.folders.build + pkg.name + "-" + pkg.version %>/css/mareon.css']
+						'!<%= pkg.folders.build + pkg.name + "-" + pkg.version %>/css/<%= pkg.name %>.css']
 			}
 		},
 		jshint: {
