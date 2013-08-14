@@ -1,0 +1,254 @@
+body {font-size: 14px;}
+th {text-align: left;}
+dl dt {font-weight: bold;}
+dl dd {margin-left: 20px;}
+@media all and (min-width: 450px) {
+    dl dl {padding-top: 20px; margin: 0;}
+    dl dt {float:left; clear: both; margin-right:10px;}
+    dl dd {margin-left: 200px;}
+    dl dd dl {margin-left: -185px; margin-top: 0;}
+    dl dd dl dd {margin-left: 185px;}
+    dl dd dl dd dl {margin-left: -170px; margin-top: 0;}
+    dl dd dl dd dl dd {margin-left: 170px;}
+}
+
+#login {
+    background: #fff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#adf));
+    background-image: -webkit-linear-gradient(#fff,#adf);
+    background-image:    -moz-linear-gradient(#fff,#adf);
+    background-image:     -ms-linear-gradient(#fff,#adf);
+    background-image:      -o-linear-gradient(#fff,#adf);
+    background-image:         linear-gradient(#fff,#adf);
+}
+#login #logo {
+    background: url(../images/logo.png) no-repeat;
+    width: 162px;
+    height: 60px;
+    background-size: 162px 60px;
+	margin: 10px auto;
+    margin-bottom: 20px;
+}
+#messages {
+    background-color: #fcf8e3;
+    border: 1px solid #fbeed5;
+    color: #c09853;
+    padding: 10px;
+    -webkit-box-shadow:  0 2px 5px 2px #aaa;
+    box-shadow:  0 2px 5px 2px #aaa;
+    margin-bottom: 3px;
+	position: fixed;
+	top: 110px;
+	z-index: 1001;
+}
+#messages p {margin-bottom: 20px;}
+#messages a[data-icon="delete"] {float:right;}
+
+#footer {
+	margin-top: 70px;
+	margin-bottom: 10px;
+	height: auto;
+	clear: both;
+	text-align: center;
+}
+
+.overlay {
+    background: rgba(64, 64, 64, 0.5);
+    position: absolute;
+    z-index: 9001;
+    left: 0;
+    top: 0;
+}
+.dropdown-menu {
+    float: right;
+    margin-top: 40px;
+    margin-right: 6px;
+}
+.dropdown-menu a {
+    text-align: left;
+}
+.pull-right {
+    float: right;
+    text-align: right;
+}
+.pull-left {
+    float: left;
+    text-align: left;
+}
+.clear {
+    clear: both;
+}
+
+
+/* CUSTOM */
+.ui-body-a .ui-content {
+    margin: 10px;
+    background-color: #fbfbfb;
+    -webkit-box-shadow:  0 2px 5px 1px #aaa;
+    box-shadow:  0 2px 5px 1px #aaa;
+}
+.ui-content > h2:first-child, .ui-content > h3:first-child {
+    margin-top: 0;
+}
+#index .ui-content {
+    margin: 0;
+}
+.ui-panel-inner {
+	padding: 0;
+}
+
+.ui-panel {
+	border: 0;
+	padding-top: 1px;
+}
+.ui-listview-filter {
+    border: 1px solid #ccc;
+    background: #d6d6d6
+}
+.ui-li-divider {
+    text-transform: uppercase;
+    background: #434A58;
+    color: #8A91A0;
+}
+/* menu selected filter */
+ul.ui-listview a.selected {
+    background-color: #292F3D;
+}
+/* checkbox list item in overview */
+.ui-field-contain .ui-controlgroup-controls {
+    width: 100%;
+}
+/* status in overview */
+.ui-li-aside h3 {
+    font-size: 14px;
+}
+textarea.ui-input-text, input.ui-input-text,
+div.ui-input-search {
+    background-color: #fff;
+}
+::-webkit-input-placeholder {font-size: 14px;}
+.ui-input-search ::-webkit-input-placeholder {font-size: 16px;}
+
+.checkbox, .radio {
+    float: left;
+    height: 40px;
+    padding: 32px 10px 0 0;
+}
+.checkbox-off,
+.checkbox-on,
+.radio-off,
+.radio-on {
+    background: url(../images/input.png) no-repeat top left;
+    width: 20px;
+    height: 20px;
+}
+.checkbox-off   {background-position: 0 0;}
+.checkbox-on    {background-position: 0 -20px;}
+.radio-off      {background-position: -20px 0;}
+.radio-on       {background-position: -20px -20px;}
+
+/* MAREON */
+
+/* status */
+.st_neu,
+.st_gesehen                 {color: dodgerblue;}
+.st_vorbehalt               {color: limegreen}
+.st_bestaetigt              {color: forestgreen}
+.st_ausfuehrung_begonnen,
+.st_geparkt                 {color: darkcyan}
+.st_erledigt                {color: darkslategray;}
+.st_storniert               {color: firebrick;}
+
+.icon {
+    display: inline-block;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    background: url('../images/type.png');
+    height: 16px;
+    width: 16px;
+    margin-left: 3px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  .icon {
+    background: url('../images/type@2x.png');
+    background-size: 192px 32px;
+  }
+}
+
+.att                        {background-position: 0 0;}
+.att_new                    {background-position: -16px 0;}
+.att_fax                    {background-position: -32px 0;}
+.att_fax_new                {background-position: -48px 0;}
+.bd                         {background-position: -64px 0;}
+.bd_plus                    {background-position: -80px 0;}
+.change                     {background-position: -96px 0;}
+.compounded                 {background-position: -112px 0;}
+.ep                         {background-position: -128px 0;}
+.no_pdf                     {background-position: -144px 0;}
+.note                       {background-position: -160px 0;}
+.phone                      {background-position: -176px 0;}
+.printed                    {background-position: 0 -16px;}
+.project, .ord_capex        {background-position: -16px -16px;}
+.signed                     {background-position: -32px -16px;}
+.warranty                   {background-position: -48px -16px;}
+.paper_invoice              {background-position: -64px -16px;}
+.insurance, .ord_insurance  {background-position: -80px -16px;}
+.ord_maintenance            {background-position: -96px -16px;}
+.ord_tendance               {background-position: -112px -16px;}
+.ord_turncost               {background-position: -128px -16px;}
+.ord_submission             {background-position: -144px -16px;}
+.vspflicht                  {background-position: -160px -16px;}
+.geldeingang_manuell        {background-position: -176px -16px;}
+
+/* docs */
+.irrelevant {text-decoration: line-through;}
+
+/* JQM */
+[ng\:cloak], [ng-cloak], .ng-cloak {display: none;}
+
+/* responsive panel */
+@media (min-width : 55em) {
+	.ui-panel-closed {
+		width: 17em;
+		visibility: visible;
+	}
+
+	.ui-panel-content-wrap.ui-body-a.ui-panel-animate.ui-panel-content-wrap-closed,
+	#index .ui-header {
+		margin-left:17em;
+	}
+
+	#index .ui-footer {
+		margin-left: 15em;
+	}
+
+	#index .ui-header-fixed, #index .ui-footer-fixed {
+	    width: auto;
+    }
+
+	.force-visible {
+		display: block !important;
+	}
+
+}
+
+#suchmodus .ui-radio {
+	width: 50%;
+}
+
+#mietersuche {
+	margin: 0;
+}
+
+.selected-lp {
+	float: left;
+	margin: 5px;
+}
+
+@media (max-width : 55em) {
+	#menuButton {
+		display: block !important;
+	}
+}
