@@ -41,6 +41,7 @@ There are no features like yeoman generators. Its just a project with as much fr
 ##Usage
 
 While running local web server following actions will be run automatically:
+
 	* unit-tests (after changes in javascript files)
 	* live reloading of ressources (after changes in HTML/JS/CSS files)
 
@@ -80,7 +81,8 @@ During grunt build ( *grunt install* ) to create a deployable artificat all css 
 into one big css file. The grunt build has to know about the correct order of css files to do this. Currently you have
 to configure the order yourself inside the [gruntfile.js](gruntfile.js). I have added a comment where to do that.
 
-If you want to implement a more user-friendly version for the configuration, go ahead and fix issue #6 .
+If you want to implement a more user-friendly version for the configuration, go ahead and fix
+[issue #6](https://github.com/marcorinck/angular-template-project/issues/6) .
 
 ###HTML files
 
@@ -124,7 +126,7 @@ file. If you need to include code that is not available as a bower module, I sug
 [src/main/external-libs](src/main/external-libs)
 
 Currently there is no automated pick-up from bower dependencies for loading with requireJS. If you want to implement it,
-please go ahead and fix #4 . Thanks!
+please go ahead and fix [issue #4](https://github.com/marcorinck/angular-template-project/issues/4) . Thanks!
 
 After adding new dependencies you have to configure loading in 2 different files:
 
