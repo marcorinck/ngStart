@@ -1,7 +1,13 @@
 {
 	"name": "angular-template-project",
 	"homepage": "https://github.com/marcorinck/angular-template-project",
+	"author": "Marco Rinck <marco.rinck@googlemail.com>",
+	"description": "This project is a skeleton to use for new angularJS projects. It works out of the box without changes and contains all the boiler plate code to setup a new project. It contains hooks for your production code, unit tests, deployment, module loading and much more.",
+	"bugs": {
+		"url" : "http://github.com/marcorinck/angular-template-project/issues"
+	},
 	"version": "0.0.1",
+	"license" : "MIT",
 	"devDependencies": {
 		"grunt": "0.4.x",
 		"grunt-contrib-clean": "0.4.1",
