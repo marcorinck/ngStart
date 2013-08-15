@@ -1,3 +1,15 @@
+<h1>Contact Page</h1>
+
 <p>{{ author }}</p>
 
 <p>{{ email}}</p>
+<form ng-submit="contact.sendMessage()" class="panel">
+	<div class="panel-heading">Contact form</div>
+	<div class="panel-body">
+		<fieldset>
+			<label class="control-label" for="text">Message</label>
+			<textarea id="text" class="input-sm" ng-model="contact.message.text" cols="50" />
+		</fieldset>
+	</div>
+
+</form>

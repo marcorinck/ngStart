@@ -134,6 +134,7 @@ module.exports = function (grunt) {
 				files: {
 					'<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/css/<&= pkg.name &>.css': [
 							//include all css files in correct order, add new files in desired order
+							'<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/css/bootstrap.css',
 							'<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/css/sample.css'
 						]
 				}
