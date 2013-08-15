@@ -1,32 +1,40 @@
-define(['angular', 'routes', 'about/about' ], function (angular, routes) {
+define(['angular', 'about/about', 'contact/contact' ], function (angular) {
 	"use strict";
-	var app = angular.module("app", ["about"]);
+	var app = angular.module("app", ["about", "contact"]);
 
+	app.config(['$httpProvider', '$routeProvider', function ($httpProvider, $routeProvider) {
+		var httpLogInterceptor;
 
-	app.run(['$rootScope', function () {
-		app.config(['$httpProvider', function ($httpProvider) {
-			var httpLogInterceptor;
+		$routeProvider.when('/about/', {
+			templateUrl: 'about.html',
+			controller: "aboutController"
+		});
+		$routeProvider.when('/contact/', {
+			templateUrl: 'contact.html',
+			controller: "contactController"
+		});
 
-			httpLogInterceptor = ['$q', function ($q) {
+		$routeProvider.otherwise({redirectTo: '/about/'});
 
-				function success(response) {
-					console.log("Successful HTTP request. Response:", response);
-					return response;
-				}
+		httpLogInterceptor = ['$q', function ($q) {
 
-				function error(response) {
-					console.log("Error in HTTP request. Response:", response);
+			function success(response) {
+				console.log("Successful HTTP request. Response:", response);
+				return response;
+			}
 
-					return $q.reject(response);
-				}
+			function error(response) {
+				console.log("Error in HTTP request. Response:", response);
 
-				return function (promise) {
-					return promise.then(success, error);
-				};
-			}];
+				return $q.reject(response);
+			}
 
-			$httpProvider.responseInterceptors.push(httpLogInterceptor);
-		}]);
+			return function (promise) {
+				return promise.then(success, error);
+			};
+		}];
+
+		$httpProvider.responseInterceptors.push(httpLogInterceptor);
 	}]);
 
 	return app;
