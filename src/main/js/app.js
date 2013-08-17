@@ -1,6 +1,6 @@
-define(['angular', 'about/about', 'contact/contact' ], function (angular) {
+define(['angular', 'about/about', 'contact/contact', 'navbar/navbar' ], function (angular) {
 	"use strict";
-	var app = angular.module("app", ["about", "contact"]);
+	var app = angular.module("app", ["about", "contact", "navbar"]);
 
 	app.config(['$httpProvider', '$routeProvider', function ($httpProvider, $routeProvider) {
 		var httpLogInterceptor;

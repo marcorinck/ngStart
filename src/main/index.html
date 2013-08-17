@@ -19,28 +19,27 @@
 	<!--<script type="text/javascript">parent.uitest && parent.uitest.instrument(window);</script>-->
 	<script src="http://localhost:35729/livereload.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrap-responsive.css">
 	<link rel="stylesheet" href="css/sample.css">
 	<script src="../../bower_components/requirejs/require.js" data-main="js/main"></script>
 	<!--<!(endif)-->
 </head>
-<body ng-controller="aboutController">
-<header class="navbar navbar-inverse navbar-fixed-top" role="banner">
-	<div class="container">
-		<div class="navbar-header">
-			<a href="#" class="navbar-brand">Angular Template Project</a>
+<body ng-controller="navbarController">
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<a href="#" class="brand">Angular Template Project</a>
+			<div class="nav" >
+				<ul class="nav">
+					<li ng-class="{active: isActive('/about/')}"><a href="#about">About Page</a></li>
+					<li ng-class="{active: isActive('/contact/')}"><a href="#contact">Contact Page</a></li>
+				</ul>
+			</div>
 		</div>
-		<nav class="collapse navbar-collapse" role="navigation">
-			<ul class="nav navbar-nav">
-				<li><a href="#about">About Page</a></li>
-				<li><a href="#contact">Contact Page</a></li>
-			</ul>
-		</nav>
 	</div>
-</header>
-<div style="padding: 30px 30px 40px;">
-	<div class="container" >
-		<div ng-view></div>
-	</div>
+</div>
+<div class="container" >
+	<div ng-view></div>
 </div>
 
 

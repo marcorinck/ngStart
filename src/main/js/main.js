@@ -10,8 +10,8 @@
 	});
 
 	require([
-		"app"
-	], function() {
+		"angular", "app"
+	], function(angular) {
 		angular.bootstrap(document, ["app"]);
 	});
 }(require));
