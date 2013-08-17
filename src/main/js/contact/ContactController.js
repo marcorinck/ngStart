@@ -9,8 +9,13 @@ define(function () {
 		$scope.page = "contact";
 		$scope.message = contactService.message;
 
+		$scope.messageChanged = function() {
+			$scope.sent = false;
+		};
+
 		$scope.sendMessage = function() {
-			contactService.sendMessage($scope.message.text);
+			contactService.sendMessage();
+			$scope.sent = true;
 		};
 	};
 
