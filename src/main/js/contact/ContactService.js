@@ -8,8 +8,8 @@ define(function () {
 			text: ""
 		};
 
-		function sendMessage(message) {
-			console.log("SendMessage called! Message: " + message);
+		function sendMessage() {
+			console.log("SendMessage called! Message: " + message.text);
 		}
 
 		return {
