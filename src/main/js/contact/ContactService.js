@@ -8,14 +8,14 @@ define(function () {
 			text: ""
 		};
 
-		function sendMessage() {
-			console.log("SendMessage called!");
+		function sendMessage(message) {
+			console.log("SendMessage called! Message: " + message);
 		}
 
 		return {
 			message: message,
 			sendMessage: sendMessage
-		}
+		};
 	};
 
 	return ContactService;

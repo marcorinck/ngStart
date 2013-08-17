@@ -1,15 +1,24 @@
-<h1>Contact Page</h1>
+<div class="hero-unit">
+	<h1>Contact Page</h1>
+</div>
 
-<p>{{ author }}</p>
 
-<p>{{ email}}</p>
-<form ng-submit="contact.sendMessage()" class="panel">
-	<div class="panel-heading">Contact form</div>
-	<div class="panel-body">
-		<fieldset>
-			<label class="control-label" for="text">Message</label>
-			<textarea id="text" class="input-sm" ng-model="contact.message.text" cols="50" />
-		</fieldset>
+<div class="row">
+	<div class="span4">
+		<h2>Author</h2>
+		<p>{{ author }}</p>
+		<p><a href="mailto: {{ email }}">{{ email}}</a></p>
+		<p><a href="{{ homepage }}">{{ homepage }}</a></p>
 	</div>
+	<div class="span8">
+		<h2 >Contact form</h2>
+		<form ng-submit="sendMessage()">
+			<fieldset>
+				<label class="control-label" for="text">Message</label>
+				<textarea id="text" class="field span8" ng-model="message.text" rows="10"></textarea>
+			</fieldset>
 
-</form>
+			<button class="btn btn-primary">Send</button>
+		</form>
+	</div>
+</div>
