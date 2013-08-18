@@ -2,7 +2,7 @@
 	"name": "angular-template-project",
 	"homepage": "https://github.com/marcorinck/angular-template-project",
 	"version": "0.0.1",
-	"main": "src/main/css/sample.css",
+	"main": "src/main/css/project.css",
 	"ignore": [
 		".jshintrc",
 		"**/*.txt"
