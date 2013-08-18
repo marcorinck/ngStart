@@ -1,4 +1,4 @@
-#Angular Template Project [![Dependency Status](https://gemnasium.com/PascalPrecht/angular-translate.png)]
+#Angular Template Project [![Dependency Status](https://gemnasium.com/marcorinck/angular-template-project.png)]
 
 This project is a grunt project. You need a running [grunt](http://gruntjs.com/), [nodeJS](http://nodejs.org/) and
 [bower](https://github.com/bower/bower) installation.
