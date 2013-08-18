@@ -1,9 +1,16 @@
 define(['angular', 'about/about', 'contact/contact', 'navbar/navbar' ], function (angular) {
 	"use strict";
-	var app = angular.module("app", ["about", "contact", "navbar"]);
+	var app = angular.module("app", ["about", "contact", "navbar", "pascalprecht.translate"]);
 
-	app.config(['$httpProvider', '$routeProvider', function ($httpProvider, $routeProvider) {
+	app.config(['$httpProvider', '$routeProvider', '$translateProvider', function ($httpProvider, $routeProvider, $translateProvider) {
 		var httpLogInterceptor;
+
+		$translateProvider.useStaticFilesLoader({
+			prefix: 'js/translations/locale-',
+			suffix: '.json'
+		});
+		$translateProvider.preferredLanguage('en');
+		$translateProvider.useMissingTranslationHandlerLog();
 
 		$routeProvider.otherwise({redirectTo: '/about/'});
 

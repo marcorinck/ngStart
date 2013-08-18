@@ -1,0 +1,11 @@
+{
+	"Contact Page": "Contact Page",
+	"About Page": "About Page",
+	"Author": "Author",
+	"Contact form": "Contact form",
+	"Message": "Message",
+	"Send": "Send",
+	"about": {
+		"sampletext": "This is a sample text from the AboutController"
+	}
+}
