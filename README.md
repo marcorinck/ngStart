@@ -65,6 +65,10 @@ Create a deployable artifact for your production webserver:
 
 	grunt install
 
+Release a new version of your project:
+
+	grunt release
+
 List all packages and their licenses this project depends on, in case your boss wants to know that.
 
  	grunt license
