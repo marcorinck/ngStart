@@ -42,10 +42,16 @@ There are no features like yeoman generators. Its just a project with as much fr
 
 ##Usage
 
-While running local web server following actions will be run automatically:
+As browsers have a security model for file loaded from file URLs (file://....) angular projects should be loaded
+from webservers even when doing local development. This project uses grunts built-in webserver to server project files
+(via grunt-connect).
 
-* unit-tests (after changes in javascript files)
-* live reloading of ressources (after changes in HTML/JS/CSS files)
+While running this web server following actions will be run automatically:
+
+* serve ALL projects via http://localhost:8000, starting URL is http://localhost:8000/index.html
+* jslint all javascript files ((after changes in javascript files)
+* unit-tests (after changes in javascript files) (currently not working because of changes in karma)
+* live reloading of ressources via grunt-watch (after changes in HTML/JS/CSS files)
 
 To start the local web server:
 
