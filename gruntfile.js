@@ -233,6 +233,11 @@ module.exports = function (grunt) {
 					baseDir: '<%=pkg.folders.wwwRoot %>css'
 				}
 			}
+		},
+		release: {
+			options: {
+				npm: false
+			}
 		}
 	});
 
@@ -250,44 +255,6 @@ module.exports = function (grunt) {
 			grunt.task.run("targethtml:build");
 			grunt.task.run("manifest");
 			grunt.task.run("compress");
-		}
-	);
-
-	//TODO - use a grunt plugin for version management
-	grunt.registerTask("release", "Update version number",
-		function (versionNumber) {
-			var pkg, versions;
-			if (!versionNumber) {
-				grunt.fatal("Die Angabe welche Versionsnummer erhöht werden soll, ist zwingend notwendig ('Major', 'Release' oder 'Hotfix')");
-			}
-
-			if (versionNumber !== 'Major' && versionNumber !== 'Release' && versionNumber !== 'Hotfix') {
-				grunt.fatal("Die zu erhöhende Versionsnummer muss 'Major', 'Release' oder 'Hotfix' sein: " + versionNumber);
-			}
-
-			pkg = grunt.file.readJSON('./package.json');
-			grunt.log.writeln("Bisherige Version: " + pkg.version);
-
-			versions = pkg.version.split(".");
-
-			if (versionNumber === 'Major') {
-				versions[0] = parseInt(versions[0], 10) + 1;
-				versions[1] = 0;
-				versions[2] = 0;
-			} else if (versionNumber === 'Release') {
-				versions[1] = parseInt(versions[1], 10) + 1;
-				versions[2] = 0;
-			} else if (versionNumber === 'Hotfix') {
-				versions[2] = parseInt(versions[2], 10) + 1;
-			}
-
-			pkg.version = versions.join(".");
-
-			grunt.log.writeln("Neue Version: " + pkg.version);
-			grunt.file.write('./package.json', JSON.stringify(pkg, undefined, '\t'));
-			grunt.log.writeln("");
-			grunt.log.writeln("package.json wurde erfolgreich aktualisiert.");
-
 		}
 	);
 
