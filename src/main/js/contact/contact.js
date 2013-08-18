@@ -2,8 +2,15 @@ define(['angular', 'contact/ContactController', 'contact/ContactService' ], func
 	"use strict";
 
 	var contact = angular.module("contact", []);
-	contact.controller("contactController", ContactController);
+
 	contact.service("ContactService", ContactService);
+
+	contact.config(["$routeProvider", function($routeProvider) {
+		$routeProvider.when('/contact/', {
+			templateUrl: "js/" + 'contact/contact.html',
+			controller: ContactController
+		});
+	}]);
 
 	return contact;
 });
