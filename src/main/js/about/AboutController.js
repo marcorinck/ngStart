@@ -1,11 +1,11 @@
 define(function () {
 	"use strict";
 
-	var AboutController = function($scope) {
-		$scope.about = "This is sample about from angular.AboutController";
+	var AboutController = function($scope, $translate) {
+		$scope.about = $translate("about.sampletext");
 	};
 
-	AboutController.$inject = ["$scope"];
+	AboutController.$inject = ["$scope", "$translate"];
 
 	return AboutController;
 });

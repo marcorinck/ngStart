@@ -1,5 +1,5 @@
 <div class="hero-unit">
-	<h1>Contact Page</h1>
+	<h1><translate>Contact Page</translate></h1>
 </div>
 
 
@@ -9,20 +9,20 @@
 		<strong>Message sent!</strong> Not really, but almost. Message was: {{ message.text }}
 	</div>
 	<div class="span4">
-		<h2>Author</h2>
+		<h2><translate>Author</translate></h2>
 		<p>{{ author }}</p>
 		<p><a href="mailto: {{ email }}">{{ email}}</a></p>
 		<p><a href="{{ homepage }}">{{ homepage }}</a></p>
 	</div>
 	<div class="span8">
-		<h2 >Contact form</h2>
+		<h2><translate>Contact form</translate></h2>
 		<form ng-submit="sendMessage()">
 			<fieldset>
-				<label class="control-label" for="text">Message</label>
+				<label class="control-label" for="text"><translate>Message</translate></label>
 				<textarea id="text" class="field span8" ng-model="message.text" rows="10" ng-change="messageChanged()"></textarea>
 			</fieldset>
 
-			<button class="btn btn-primary" ng-disabled="!message.text">Send</button>
+			<button class="btn btn-primary" ng-disabled="!message.text"><translate>Send</translate></button>
 		</form>
 	</div>
 </div>

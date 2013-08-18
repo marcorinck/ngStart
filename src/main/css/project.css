@@ -3,3 +3,20 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.flag {
+	float: right;
+	height: 32px;
+	width: 32px;
+	margin-right: 5px;
+	margin-top: 5px;
+	cursor: pointer;
+}
+
+.flag-de {
+	background-image: url('../images/de.png');
+}
+
+.flag-en {
+	background-image: url('../images/en.png');
+}

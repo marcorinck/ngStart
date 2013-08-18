@@ -1,15 +1,18 @@
 define(function () {
 	"use strict";
 
-	var NavbarController = function($scope, $location) {
+	var NavbarController = function($scope, $location, $translate) {
 		$scope.isActive = function(page) {
-			var currentPage = $location.path();
-
-			return currentPage === page;
+			return page === $location.path();
 		};
+
+		$scope.changeLanguage = function(language) {
+			$translate.uses(language);
+		};
+
 	};
 
-	NavbarController.$inject = ["$scope", '$location'];
+	NavbarController.$inject = ["$scope", '$location', '$translate'];
 
 	return NavbarController;
 });
