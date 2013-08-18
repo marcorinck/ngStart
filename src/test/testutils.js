@@ -83,7 +83,7 @@ if (typeof jasmineui === "object") {
 
         function mockBackend() {
             var services = ['services',
-                'backendService',
+                'contactService',
                 'utilService',
                 'authenticationService'];
 
@@ -103,11 +103,11 @@ if (typeof jasmineui === "object") {
             }
 
             backendServiceFactory.$inject = ['$q'];
-            angular.module(["services"]).factory('backendService', backendServiceFactory);
+            angular.module(["services"]).factory('contactService', backendServiceFactory);
         }
 
-        function backendService() {
-            return $("body").injector().get("backendService");
+        function contactService() {
+            return $("body").injector().get("contactService");
         }
 
         // -----
@@ -207,7 +207,7 @@ if (typeof jasmineui === "object") {
         // -----
 
         window.mockBackend = mockBackend;
-        window.backendService = backendService;
+        window.contactService = contactService;
         window.backendServiceResult = backendServiceResult;
 
         window.activePageScope = activePageScope;
