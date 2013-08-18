@@ -5,15 +5,6 @@ define(['angular', 'about/about', 'contact/contact', 'navbar/navbar' ], function
 	app.config(['$httpProvider', '$routeProvider', function ($httpProvider, $routeProvider) {
 		var httpLogInterceptor;
 
-		$routeProvider.when('/about/', {
-			templateUrl: 'about.html',
-			controller: "aboutController"
-		});
-		$routeProvider.when('/contact/', {
-			templateUrl: 'contact.html',
-			controller: "contactController"
-		});
-
 		$routeProvider.otherwise({redirectTo: '/about/'});
 
 		httpLogInterceptor = ['$q', function ($q) {

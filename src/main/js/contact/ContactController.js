@@ -6,7 +6,6 @@ define(function () {
 		$scope.email = "marco.rinck@googlemail.com";
 		$scope.homepage = "https://github.com/marcorinck/angular-template-project";
 		$scope.message = contactService.messsage;
-		$scope.page = "contact";
 		$scope.message = contactService.message;
 
 		$scope.messageChanged = function() {
