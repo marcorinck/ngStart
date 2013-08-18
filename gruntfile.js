@@ -214,14 +214,14 @@ module.exports = function (grunt) {
 				dest: "<%= pkg.folders.build + pkg.name + '-' + pkg.version + '/' + pkg.name %>.manifest"
 			}
 		},
-//		license: {
-//			options: {
-//				unknown: false,
-//				start: '.',
-//				depth: null,
-//				format: "csv"
-//			}
-//		},
+		license: {
+			options: {
+				unknown: true,
+				start: '.',
+				depth: null,
+				output: "file"
+			}
+		},
 		dataUri: {
 			dist: {
 				src: ['<%=pkg.folders.wwwRoot %>css/*.css'],
@@ -290,48 +290,53 @@ module.exports = function (grunt) {
 		}
 	);
 
-//	grunt.registerTask('license', 'Erstellt die Datei LICENSES mit einer Liste aller im Projekt verwendeten NPM-Module und deren Lizenz und Homepage (falls bekannt), standardmässig im CSV-Format', function() {
-//		function convertToCsv(data) {
-//			var ret = "", module, licenses, repository;
-//
-//			for (module in data) {
-//				if (data.hasOwnProperty(module)) {
-//					licenses = data[module].licenses || "";
-//					repository = data[module].repository || "";
-//					ret = ret + module + ";" + licenses + ";" + repository + "\r\n";
-//				}
-//			}
-//
-//			return ret;
-//		}
-//		var checker = require('license-checker'),
-//			fs = require('fs'),
-//			done = this.async(),
-//			defaults = {
-//				start: '.',
-//				unknown: false,
-//				depth: 1,
-//				include: 'all',
-//				output: 'LICENSES',
-//				format: 'json' //json or csv
-//			},
-//			options = grunt.util._.extend(defaults, this.options());
-//
-//		checker.init(options, function(data){
-//			if (options.output) {
-//				if (options.format === 'csv') {
-//					data = convertToCsv(data);
-//				} else {
-//					data = JSON.stringify(data, null, 4);
-//				}
-//
-//				fs.writeFile(options.output, data, function() {
-//					console.log('Successfully written '.green + options.output.grey);
-//					done();
-//				});
-//			}
-//		});
-//	});
+	grunt.registerTask('license', 'List all packages (and their sub-packages) that this project depends on with license information', function() {
+		function convertToCsv(data) {
+			var ret = "", module, licenses, repository;
+
+			for (module in data) {
+				if (data.hasOwnProperty(module)) {
+					licenses = data[module].licenses || "";
+					repository = data[module].repository || "";
+					ret = ret + module + ";" + licenses + ";" + repository + "\r\n";
+				}
+			}
+
+			return ret;
+		}
+		var checker = require('license-checker'),
+			fs = require('fs'),
+			done = this.async(),
+			defaults = {
+				start: '.',
+				unknown: false,
+				depth: 1,
+				include: 'all',
+				output: 'console', //console or file
+				filename: 'LICENSES',
+				format: 'json' //json or csv
+			},
+			options = grunt.util._.extend(defaults, this.options());
+
+		checker.init(options, function(data){
+			if (options.format === 'csv') {
+				data = convertToCsv(data);
+			} else {
+				data = JSON.stringify(data, null, 4);
+			}
+
+			if (options.output === 'file') {
+				fs.writeFile(options.filename, data, function() {
+					console.log('Successfully written '.green + options.filename.grey);
+					done();
+				});
+			} else if (options.output === 'console') {
+				grunt.log.writeln(data);
+			} else {
+				grunt.log.writeln("Unknown output channel: " + options.output);
+			}
+		});
+	});
 
 	grunt.registerTask('default', ['jshint']);
 	grunt.registerTask('web', ['connect', 'watch']); //'karma:development'
