@@ -52,7 +52,7 @@ from webservers even when doing local development. This project uses grunts buil
 
 While running this web server following actions will be run automatically:
 
-* serve all project file via http://localhost:8000, starting URL is [http://localhost:8000/index.html](http://localhost:8000/index.html)
+* serve all project files via http://localhost:8000, URL for index page is [http://localhost:8000/src/main/index.html](http://localhost:8000/src/main/index.html)
 * jslint all javascript files ((after changes in javascript files)
 * unit-tests (after changes in javascript files) (currently not working because of changes in karma)
 * live reloading of ressources via grunt-watch (after changes in HTML/JS/CSS files)
