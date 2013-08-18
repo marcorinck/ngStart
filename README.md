@@ -31,10 +31,11 @@ The following libraries are used:
 * [grunt-data-uri](https://github.com/ahomu/grunt-data-uri) Embeds all referenced images in css files in the generated project css file, which is optimized by grunt
 * [karma](http://karma-runner.github.io/) (as a test runner for unit and ui tests)
 
-###Differences to yeoman
-This project is very similar to [yeoman](http://yeoman.io/). As much as I like yeoman and as cool it is to use it, its also very
-heavy as a technology stack. This project is much lighter (besides node, grunt and bower, you don't need to install anything)
-with similar, but hardcoded (and thus limited) features.
+###Differences to yeoman and angular-seed
+This project is very similar to [yeoman](http://yeoman.io/) or [angular-seed](https://github.com/angular/angular-seed).
+As much as I like yeoman and as cool it is to use it, its also very heavy as a technology stack. This project is much
+lighter (besides node, grunt and bower, you don't need to install anything) with similar, but hardcoded
+(and thus limited) features.
 
 There are no features like yeoman generators. Its just a project with as much freedom and as much boundaries as
 **I** (Marco Rinck) like.
