@@ -21,31 +21,8 @@ module.exports = function (grunt) {
 			src: '<%=pkg.folders.jsSource %>' + '**/*.js',
 			grunt: ['gruntfile.js'],
 			options: {
-				curly: true,
-				eqeqeq: true,
-				immed: true,
-				latedef: true,
-				newcap: true,
-				noarg: true,
-				sub: true,
-				undef: true,
-				boss: true,
-				eqnull: true,
-				unused: true,
-				browser: true,
-				strict: true,
-				jquery: true,
-				bitwise: true,
-				trailing: true,
-				regexp: true,
-				nonew: true,
-				forin: true,
+				jshintrc: '.jshintrc',
 				globals: {
-					angular: true,
-					moment: true,
-					console: true,
-					define: true,
-					require: true
 				}
 			}
 		},
