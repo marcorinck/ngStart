@@ -109,7 +109,7 @@ module.exports = function (grunt) {
 		cssmin: {
 			css: {
 				files: {
-					'<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/css/<&= pkg.name &>.css': [
+					'<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/css/<%= pkg.name %>.css': [
 							//include all css files in correct order, add new files in desired order
 							'<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/css/bootstrap.css',
 							'<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/css/bootstrap-responsive.css',
@@ -148,13 +148,13 @@ module.exports = function (grunt) {
 			compile: {
 				options: {
 					baseUrl: "<%= pkg.folders.jsSource %>",
-					name: "../../bower_components/almond/almond",
+					name: "../../../bower_components/almond/almond",
 					include: "main",
 					mainConfigFile: "<%= pkg.folders.jsSource %>/main.js",
 					out: "<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/js/main.js",
 					optimize: "uglify2",
 					paths: {
-						'angular':'../../bower_components/angular/angular.min'
+						'angular':'../../../bower_components/angular/angular.min'
 					},
 					generateSourceMaps: true,
 					preserveLicenseComments: false,
@@ -220,6 +220,8 @@ module.exports = function (grunt) {
 
 	grunt.registerTask("install", "Create a deployable artifact for production servers",
 		function () {
+			console.log('Warning! This task is work in progress and is not working as expected currently.'.red);
+			grunt.log.write('\x07');
 			grunt.task.run("jshint");
 			grunt.task.run("clean:all");
 			grunt.task.run("requirejs");
