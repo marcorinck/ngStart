@@ -141,17 +141,16 @@ module.exports = function (grunt) {
 			}
 		},
 		karma: {
+			options: {
+				configFile: 'karma.conf.js'
+			},
 			development: {
-				options: {
-					configFile: 'karma.conf.js',
-					background: true
-				}
+				background: true,
+				browsers: ['PhantomJS']
 			},
 			build: {
-				options: {
-					configFile: 'karma.conf.js',
-					singleRun: true
-				}
+				singleRun: true,
+				browsers: ['PhantomJS']
 			}
 		},
 		compress: {
@@ -334,7 +333,7 @@ module.exports = function (grunt) {
 //	});
 
 	grunt.registerTask('default', ['jshint']);
-	grunt.registerTask('web', ['connect', 'watch']); //'karma:development'
+	grunt.registerTask('web', ['connect', 'karma:development', 'watch']); //'karma:development'
 
 	//call grunt.loadNpmTasks for all dependencies in package.json which names start with "grunt-"
 	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
