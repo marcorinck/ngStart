@@ -41,8 +41,8 @@ There are no features like yeoman generators. Its just a project with as much fr
 **I** (Marco Rinck) like.
 
 I don't know where angular-seeds stands today, but at the time I was new to angular (November 2012), I didn't understand
-what happened in angular-seed at all and was quite confused what it was doing to make something work. Because of this
-I created my own build system which eventually resulted in this sample project.
+what happened in angular-seed at all and was quite confused what it was doing to make something work. But i wanted to learn,
+so I took the hard way and learned it by making my own build system. Which eventually resulted in this sample project.
 
 ##Usage
 
