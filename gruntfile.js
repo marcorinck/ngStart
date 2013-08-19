@@ -152,7 +152,7 @@ module.exports = function (grunt) {
 					include: "main",
 					mainConfigFile: "<%= pkg.folders.jsSource %>/main.js",
 					out: "<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/modules/main.js",
-					optimize: "uglify2",
+					optimize: "none",
 					paths: {
 						'angular':'../../../bower_components/angular/angular.min'
 					},
