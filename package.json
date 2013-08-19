@@ -37,7 +37,7 @@
 	"folders": {
 		"build": "target/",
 		"wwwRoot": "src/main/",
-		"jsSource": "src/main/js/",
+		"jsSource": "src/main/modules/",
 		"externalLibs": "src/main/external-libs/",
 		"testRoot": "src/test/"
 	}

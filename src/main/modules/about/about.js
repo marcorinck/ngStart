@@ -5,7 +5,7 @@ define(['angular', 'about/AboutController' ], function (angular, AboutController
 
 	about.config(["$routeProvider", function($routeProvider) {
 		$routeProvider.when('/about/', {
-			templateUrl: "js/" + 'about/about.html',
+			templateUrl: "modules/" + 'about/about.html',
 			controller: AboutController
 		});
 
