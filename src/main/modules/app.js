@@ -6,7 +6,7 @@ define(['angular', 'about/about', 'contact/contact', 'navbar/navbar' ], function
 		var httpLogInterceptor;
 
 		$translateProvider.useStaticFilesLoader({
-			prefix: 'js/translations/locale-',
+			prefix: 'modules/translations/locale-',
 			suffix: '.json'
 		});
 		$translateProvider.preferredLanguage('en');

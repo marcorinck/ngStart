@@ -77,16 +77,16 @@ module.exports = function (grunt) {
 				files: [{
 					expand: true,
 					dest: '<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/images/build/',
-					src: ['**'],
+					src: ['**', "!**/README"],
 					cwd: '<%= pkg.folders.wwwRoot%>images/build/'
 				}]
 			},
-			font: {
+			modules: {
 				files: [{
 					expand: true,
-					dest: '<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/font/',
-					src: ['**'],
-					cwd: '<%= pkg.folders.wwwRoot%>font/'
+					dest: '<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/modules/',
+					src: ['**', '!**/*.js', "!**/README"],
+					cwd: '<%= pkg.folders.wwwRoot%>modules/'
 				}]
 			},
 			deploy: {
@@ -151,7 +151,7 @@ module.exports = function (grunt) {
 					name: "../../../bower_components/almond/almond",
 					include: "main",
 					mainConfigFile: "<%= pkg.folders.jsSource %>/main.js",
-					out: "<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/js/main.js",
+					out: "<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/modules/main.js",
 					optimize: "uglify2",
 					paths: {
 						'angular':'../../../bower_components/angular/angular.min'
@@ -186,9 +186,10 @@ module.exports = function (grunt) {
 					timestamp: true
 				},
 
-				src: ["**/*", "!js/main.js.map", "!js/main.js.src", "!**/apple-touch-icon-precomposed.png",
+				src: ["**/*", "!modules/main.js.map", "!modules/main.js.src",
 					//TODO - remove folder names manually, update grunt-manifest to have it done automatically
-					"!js", "!css", "!images", "!images/build"],
+					"!js", "!css", "!images", "!images/build", "!modules", "!modules/about", "!modules/contact",
+					"!modules/navbar", "!modules/translations"],
 				dest: "<%= pkg.folders.build + pkg.name + '-' + pkg.version + '/' + pkg.name %>.manifest"
 			}
 		},
@@ -229,7 +230,7 @@ module.exports = function (grunt) {
 			grunt.task.run("cssmin");
 			grunt.task.run("clean:css");
 			grunt.task.run("copy:images");
-			grunt.task.run("copy:font");
+			grunt.task.run("copy:modules");
 			grunt.task.run("copy:htaccess");
 			grunt.task.run("targethtml:build");
 			grunt.task.run("manifest");
