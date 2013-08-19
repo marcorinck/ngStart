@@ -7,7 +7,7 @@ define(['angular', 'contact/ContactController', 'contact/ContactService' ], func
 
 	contact.config(["$routeProvider", function($routeProvider) {
 		$routeProvider.when('/contact/', {
-			templateUrl: "js/" + 'contact/contact.html',
+			templateUrl: "modules/" + 'contact/contact.html',
 			controller: ContactController
 		});
 	}]);
