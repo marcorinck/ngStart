@@ -21,6 +21,14 @@
 		"console": true,
 		"define": true,
 		"require": true,
-		"document": true
+		"document": true,
+		"describe": true,
+		"it": true,
+		"expect": true,
+		"jasmine": true,
+		"window": true,
+		"beforeEach": true,
+		"module": true,
+		"inject": true
 	}
 }
