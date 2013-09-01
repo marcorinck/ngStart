@@ -1,16 +1,16 @@
 {
-	"name": "angular-template-project",
-	"homepage": "https://github.com/marcorinck/angular-template-project",
+	"name": "ngStart",
+	"homepage": "https://github.com/marcorinck/ngStart",
 	"author": "Marco Rinck <marco.rinck@googlemail.com>",
 	"description": "This project is a skeleton to use for new angularJS projects. It works out of the box without changes and contains all the boiler plate code to setup a new project. It contains hooks for your production code, unit tests, deployment, module loading and much more.",
 	"bugs": {
-		"url": "http://github.com/marcorinck/angular-template-project/issues"
+		"url": "http://github.com/marcorinck/ngStart/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "http://github.com/marcorinck/angular-template-project"
+		"url": "http://github.com/marcorinck/ngStart"
 	},
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"license": "MIT",
 	"devDependencies": {
 		"karma": "0.10.x",

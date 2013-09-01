@@ -4,7 +4,7 @@ define(function () {
 	var ContactController = function($scope, contactService) {
 		$scope.author = "Marco Rinck";
 		$scope.email = "marco.rinck@googlemail.com";
-		$scope.homepage = "https://github.com/marcorinck/angular-template-project";
+		$scope.homepage = "https://github.com/marcorinck/ngStart";
 		$scope.message = contactService.message;
 
 		$scope.messageChanged = function() {

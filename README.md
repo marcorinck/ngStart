@@ -1,4 +1,4 @@
-#Angular Template Project [![Dependency Status](https://gemnasium.com/marcorinck/angular-template-project.png)](https://gemnasium.com/marcorinck/angular-template-project)
+ngStart [![Dependency Status](https://gemnasium.com/marcorinck/angular-template-project.png)](https://gemnasium.com/marcorinck/angular-template-project)
 
 This project is a grunt project. You need a running [grunt](http://gruntjs.com/), [nodeJS](http://nodejs.org/) and
 [bower](https://github.com/bower/bower) installation.
@@ -91,7 +91,7 @@ If you need to include code that is not available as a bower module, I suggest y
 [src/main/external-libs](src/main/external-libs)
 
 Currently there is no automated pick-up from bower dependencies for loading with requireJS. If you want to implement it,
-please go ahead and fix [issue #4](https://github.com/marcorinck/angular-template-project/issues/4). Thanks!
+please go ahead and fix [issue #4](https://github.com/marcorinck/ngStart/issues/4). Thanks!
 
 So, after adding new dependencies you have to configure loading of the new files in 3 different project files:
 
@@ -116,7 +116,7 @@ sections like this:
 
 ````html
 <!--(if target build)>
-	<link rel="stylesheet" href="css/angular-template-project.css">
+	<link rel="stylesheet" href="css/ngStart.css">
 	<script src="js/main.js" data-main="main"></script></script>
 
 <!(endif)-->
@@ -148,7 +148,7 @@ into one big css file. The grunt build has to know about the correct order of cs
 to configure the order yourself inside the [gruntfile.js](gruntfile.js). I have added a comment where to do that.
 
 If you want to implement a more user-friendly version for the configuration, go ahead and fix
-[issue #6](https://github.com/marcorinck/angular-template-project/issues/6).
+[issue #6](https://github.com/marcorinck/ngStart/issues/6).
 
 ###Images
 
