@@ -222,8 +222,6 @@ module.exports = function (grunt) {
 
 	grunt.registerTask("install", "Create a deployable artifact for production servers",
 		function () {
-			console.log('Warning! This task is work in progress and is not working as expected currently.'.red);
-			grunt.log.write('\x07');
 			grunt.task.run("jshint");
 			grunt.task.run("clean:all");
 			grunt.task.run("requirejs");

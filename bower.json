@@ -1,7 +1,6 @@
 {
 	"name": "angular-template-project",
-	"homepage": "https://github.com/marcorinck/angular-template-project",
-	"version": "0.0.1",
+	"homepage": "https://github.com/marcorinck/ngStart",
 	"main": "src/main/css/project.css",
 	"ignore": [
 		".jshintrc",
