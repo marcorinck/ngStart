@@ -9,7 +9,7 @@ define(function () {
 		};
 
 		function sendMessage() {
-			console.log("SendMessage called! Message: " + message.text);
+			console.log("SendMess age called! Message: " + message.text);
 		}
 
 		return {

@@ -29,7 +29,7 @@ module.exports = function (grunt) {
 		watch: {
 			javascript: {
 				files: ['<%=pkg.folders.jsSource %>' + '**/*.js'],
-				tasks: ['jshint'],
+				tasks: ['jshint', 'karma:development:run'],
 				options: {
 					livereload: true
 				}
@@ -53,7 +53,7 @@ module.exports = function (grunt) {
 				}
 			},
 			karma: {
-				files: ['<%=pkg.folders.testRoot %>/ui/' + '**/*.js'],
+				files: ['<%=pkg.folders.testRoot + "**/*.js" %>'],
 				tasks: ['karma:development:run']
 			}
 		},
@@ -119,15 +119,16 @@ module.exports = function (grunt) {
 			}
 		},
 		karma: {
+			options: {
+				configFile: 'karma.conf.js'
+			},
 			development: {
 				options: {
-					configFile: 'karma.conf.js',
 					background: true
 				}
 			},
 			build: {
 				options: {
-					configFile: 'karma.conf.js',
 					singleRun: true
 				}
 			}
@@ -287,7 +288,7 @@ module.exports = function (grunt) {
 	});
 
 	grunt.registerTask('default', ['jshint']);
-	grunt.registerTask('web', ['connect', 'watch']); //'karma:development'
+	grunt.registerTask('web', ['connect', 'karma:development', 'watch']);
 
 	//call grunt.loadNpmTasks for all dependencies in package.json which names start with "grunt-"
 	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);

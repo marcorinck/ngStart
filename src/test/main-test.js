@@ -1,26 +1,22 @@
 (function (window, require) {
 	"use strict";
-	var file, requireModules;
-	requireModules = [];
+	var allTestFiles, TEST_REGEXP;
 
-	//load all test files whose file names end with "*Test" automatically via requireJS
-	for (file in window.__karma__.files) {
-		if (window.__karma__.files.hasOwnProperty(file)) {
-			if (file.substring(file.length - 7, file.length) === 'Test.js') {
-				requireModules.push(file);
-			}
+	allTestFiles = [];
+	TEST_REGEXP = /Test\.js$/;
+
+	Object.keys(window.__karma__.files).forEach(function(file) {
+		if (TEST_REGEXP.test(file)) {
+			allTestFiles.push(file);
 		}
-	}
+	});
 
-	requireModules.push("app");
-
-	//angular-mocks
-	requireModules.push("mocks");
+	allTestFiles.push("app");
+	allTestFiles.push("mocks");
 
 	require({
-		// "/base" ist die URL von der Karma alle Dateien ausliefert,
-		// "src/main/js" ist due Base-URL aller Module die nicht Test sind
-		baseUrl:'/base/src/main/js',
+		// "/base" is the URL from where karma is serving project files
+		baseUrl:'/base/src/main/modules',
 		paths:{
 			'angular':'/base/bower_components/angular/angular',
 			'mocks':'/base/bower_components/angular-mocks/angular-mocks'
@@ -29,7 +25,7 @@
 			'angular':{ deps:[], exports:'angular' },
 			'mocks':{ deps:['angular'], exports:'mocks' }
 		}
-	}, requireModules, function () {
+	}, allTestFiles, function () {
 		window.__karma__.start();
 	}, function (err) {
 		var failedModules = err.requireModules;
