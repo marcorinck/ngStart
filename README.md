@@ -30,6 +30,7 @@ The following libraries are used:
 * [grunt-targethtml](https://github.com/changer/grunt-targethtml) (filtering of html files for deployment on production servers)
 * [grunt-data-uri](https://github.com/ahomu/grunt-data-uri) Embeds all referenced images in css files in the generated project css file, which is optimized by grunt
 * [karma](http://karma-runner.github.io/) (as a test runner for unit and ui tests)
+* [angular-translate](https://github.com/PascalPrecht/angular-translate) (for i18n)
 
 ###Differences to yeoman and angular-seed
 This project is very similar to [yeoman](http://yeoman.io/) or [angular-seed](https://github.com/angular/angular-seed).
