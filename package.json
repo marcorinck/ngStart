@@ -10,7 +10,7 @@
 		"type": "git",
 		"url": "http://github.com/marcorinck/ngStart"
 	},
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"license": "MIT",
 	"devDependencies": {
 		"karma": "0.10.x",
@@ -23,7 +23,7 @@
 		"grunt-contrib-watch": "0.5.x",
 		"grunt-contrib-cssmin": "0.6.x",
 		"grunt-karma": "0.6.x",
-		"grunt-requirejs": "0.3.x",
+		"grunt-requirejs": "0.4.x",
 		"grunt-exec": "0.4.x",
 		"grunt-data-uri": "0.1.x",
 		"grunt-targethtml": "0.2.x",
