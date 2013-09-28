@@ -1,4 +1,4 @@
-#ngStart [![Dependency Status](https://gemnasium.com/marcorinck/angular-template-project.png)](https://gemnasium.com/marcorinck/angular-template-project)
+#ngStart [![Dependency Status](https://gemnasium.com/marcorinck/ngStart.png)](https://gemnasium.com/marcorinck/ngStart)
 
 This project is a grunt project. You need a running [grunt](http://gruntjs.com/), [nodeJS](http://nodejs.org/) and
 [bower](https://github.com/bower/bower) installation.
@@ -17,8 +17,8 @@ Done.
 ##Features
 
 This project is a skeleton to use for new angular projects. It works out of the box without changes and contains
-all the boiler plate code to setup a new project. It contains hooks for your production code, unit tests,
-deployment, module loading and much more.
+all the boiler plate code to setup a new project and two example pages. It contains hooks for your production code, 
+unit tests, deployment, module loading and much more.
 
 The following libraries are used:
 
@@ -30,6 +30,7 @@ The following libraries are used:
 * [grunt-targethtml](https://github.com/changer/grunt-targethtml) (filtering of html files for deployment on production servers)
 * [grunt-data-uri](https://github.com/ahomu/grunt-data-uri) Embeds all referenced images in css files in the generated project css file, which is optimized by grunt
 * [karma](http://karma-runner.github.io/) (as a test runner for unit and ui tests)
+* [angular-translate](https://github.com/PascalPrecht/angular-translate) (for i18n)
 
 ###Differences to yeoman and angular-seed
 This project is very similar to [yeoman](http://yeoman.io/) or [angular-seed](https://github.com/angular/angular-seed).
