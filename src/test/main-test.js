@@ -19,10 +19,12 @@
 		baseUrl:'/base/src/main/modules',
 		paths:{
 			'angular':'/base/bower_components/angular/angular',
+			'angular-route':'/base/bower_components/angular-route/angular-route',
 			'mocks':'/base/bower_components/angular-mocks/angular-mocks'
 		},
 		shim:{
 			'angular':{ deps:[], exports:'angular' },
+			'angular-route':{ deps:['angular'] },
 			'mocks':{ deps:['angular'], exports:'mocks' }
 		}
 	}, allTestFiles, function () {
