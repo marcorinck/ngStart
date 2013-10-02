@@ -1,7 +1,7 @@
 define(['angular', 'contact/ContactController', 'contact/ContactService' ], function (angular, ContactController, ContactService) {
 	"use strict";
 
-	var contact = angular.module("contact", []);
+	var contact = angular.module("contact", ["ngRoute"]);
 
 	contact.service("ContactService", ContactService);
 

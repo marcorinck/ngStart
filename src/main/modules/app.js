@@ -1,6 +1,6 @@
-define(['angular', 'about/about', 'contact/contact', 'navbar/navbar' ], function (angular) {
+define(['angular', 'angular-route', 'about/about', 'contact/contact', 'navbar/navbar' ], function (angular) {
 	"use strict";
-	var app = angular.module("app", ["about", "contact", "navbar", "pascalprecht.translate"]);
+	var app = angular.module("app", ["about", "ngRoute", "contact", "navbar", "pascalprecht.translate"]);
 
 	app.config(['$httpProvider', '$routeProvider', '$translateProvider', function ($httpProvider, $routeProvider, $translateProvider) {
 		var httpLogInterceptor;
