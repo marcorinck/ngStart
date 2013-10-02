@@ -32,6 +32,12 @@ The following libraries are used:
 * [karma](http://karma-runner.github.io/) (as a test runner for unit and ui tests)
 * [angular-translate](https://github.com/PascalPrecht/angular-translate) (for i18n)
 
+###angularJS 1.2
+
+ngStart currently uses the stable version of angularJS 1.0.x. AngularJS 1.2.x does not work out of the box as there are some breaking changes most notably for defining routes with $routeProvider. 
+
+However, there is already a branch for angularJS 1.2 with all needed changes to run ngStart with current release candidate: [ngStart@angularJS1.2](https://github.com/marcorinck/ngStart/tree/angular1.2)
+
 ###Differences to yeoman and angular-seed
 This project is very similar to [yeoman](http://yeoman.io/) or [angular-seed](https://github.com/angular/angular-seed).
 As much as I like yeoman and as cool it is to use it, its also very heavy as a technology stack. This project is much
