@@ -10,7 +10,7 @@
 		"type": "git",
 		"url": "http://github.com/marcorinck/ngStart"
 	},
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"license": "MIT",
 	"devDependencies": {
 		"karma": "0.10.x",
