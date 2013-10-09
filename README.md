@@ -31,6 +31,12 @@ The following libraries are used:
 * [grunt-data-uri](https://github.com/ahomu/grunt-data-uri) Embeds all referenced images in css files in the generated project css file, which is optimized by grunt
 * [karma](http://karma-runner.github.io/) (as a test runner for unit and ui tests)
 * [angular-translate](https://github.com/PascalPrecht/angular-translate) (for i18n)
+ 
+###Architecture
+
+![Architecture](http://entwicklertagebuch.com/blog/wp-content/uploads/2013/10/modules-300x225.jpg)
+
+I wrote a blog post about the architecture (aka folder structure) in this project: http://entwicklertagebuch.com/blog/2013/10/how-to-structure-large-angularjs-applications/
 
 ###angularJS 1.2
 
