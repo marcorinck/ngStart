@@ -23,7 +23,7 @@ unit tests, deployment, module loading and much more.
 The following libraries are used:
 
 * [angularJS](http://angularjs.org/) (of course)
-* [bower](https://github.com/bower/bower) (for dependeny management of javascript libraries to be loaded in browser)
+* [bower](https://github.com/bower/bower) (for dependency management of javascript libraries to be loaded in browser)
 * [requireJS](http://requirejs.org/) (for javascript module loading and optimization)
 * [jslint](http://www.jslint.com/) (for quality checking of javascript code)
 * [grunt-manifest](https://github.com/gunta/grunt-manifest) (an appcache manifest will be created when creating a deployable artifact)
@@ -56,7 +56,7 @@ While running this web server following actions will be run automatically:
 * serve all project files via http://localhost:8000, URL for index page is [http://localhost:8000/src/main/index.html](http://localhost:8000/src/main/index.html)
 * jslint all javascript files (after changes in javascript files)
 * unit-tests (after changes in javascript files)
-* live reloading of ressources via grunt-watch (after changes in HTML/JS/CSS files)
+* live reloading of resources via grunt-watch (after changes in HTML/JS/CSS files)
 
 To start the local web server:
 
@@ -144,7 +144,7 @@ You can create as many css files as you want. You should place them in the [src/
 You must load all css files in the HTML files manually for local development with *grunt web* target (via <link> tag).
 Look for the sample.css file that is loaded in the sample index.html.
 
-During grunt build ( *grunt install* ) and while creating a deployable artificat all css files will be concatenated and optimized
+During grunt build ( *grunt install* ) and while creating a deployable artifact all css files will be concatenated and optimized
 into one big css file. The grunt build has to know about the correct order of css files to do this. Currently you have
 to configure the order yourself inside the [gruntfile.js](gruntfile.js). I have added a comment where to do that.
 
