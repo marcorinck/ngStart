@@ -155,7 +155,8 @@ module.exports = function (grunt) {
 					out: "<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/modules/main.js",
 					optimize: "none",
 					paths: {
-						'angular':'../../../bower_components/angular/angular.min'
+						'angular':'../../../bower_components/angular/angular.min',
+						'config/configuration': 'config/<%=configuration%>'
 					},
 					generateSourceMaps: true,
 					preserveLicenseComments: false,
@@ -221,9 +222,16 @@ module.exports = function (grunt) {
 	});
 
 	grunt.registerTask("install", "Create a deployable artifact for production servers",
-		function () {
+		function (system) {
 			grunt.task.run("jshint");
 			grunt.task.run("clean:all");
+
+			if (system) {
+				grunt.config('configuration', "configuration_" + system);
+			} else {
+				grunt.config('configuration', "configuration");
+			}
+
 			grunt.task.run("requirejs");
 			grunt.task.run("dataUri");
 			grunt.task.run("cssmin");

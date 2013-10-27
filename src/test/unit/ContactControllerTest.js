@@ -11,6 +11,7 @@ define(["contact/ContactController"], function(ContactController) {
 		beforeEach(function () {
 			//load contact module, see http://docs.angularjs.org/api/angular.mock.inject
 			module("contact");
+			module("config");
 
 			inject(["$rootScope", "$controller", function ($rootScope, $controller) {
 				//instantiate the controller with a newly created scope
