@@ -76,9 +76,13 @@ To start the local web server:
 
 (this runs jslint and unit-tests after javascript files are changed)
 
-Create a deployable artifact for your production webserver:
+Create a deployable artifact:
 
 	grunt install
+
+Create a deployable artifact for your production webserver:
+
+	grunt install:prod
 
 Release a new version of your project:
 
@@ -176,3 +180,18 @@ icons its usually faster to load them as data URIs than directly via HTTP.
 If you need to deploy images on your webserver (usually only bigger images like in galleries) you need to place them into the
 [src/main/images/build](src/main/images/build/) which *will* be included in the artifact.
 
+###Configuration
+
+There is a configuration system taking care of angular module dependencies and requireJS module loading.
+
+The standard configuration is in [src/main/modules/config/configuration.js](src/main/modules/config/configuration.js)
+which is used during a install build without any parameters.
+
+If you want to do builds for a different build environment (like a production or test server) you can create files as
+[src/main/modules/config/configuration_environmentName.js](src/main/modules/config/configuration_environmentName.js).
+Afterwards, you can do specific builds for these environments like this:
+
+	grunt install:environmentName
+
+The configuration parameters are available as an angular constant too, just declare a dependency to "config". There is an
+example for that in [src/main/modules/contact/ContactController.js](src/main/modules/contact/ContactController.js)
