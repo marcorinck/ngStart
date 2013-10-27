@@ -1,7 +1,7 @@
 define(function () {
 	"use strict";
 
-	var ContactController = function($scope, contactService) {
+	var ContactController = function($scope, contactService, config) {
 		$scope.author = "Marco Rinck";
 		$scope.email = "marco.rinck@googlemail.com";
 		$scope.homepage = "https://github.com/marcorinck/ngStart";
@@ -15,9 +15,11 @@ define(function () {
 			contactService.sendMessage();
 			$scope.sent = true;
 		};
+
+		$scope.system = config.system;
 	};
 
-	ContactController.$inject = ["$scope", 'ContactService'];
+	ContactController.$inject = ["$scope", 'ContactService', 'config'];
 
 	return ContactController;
 });
