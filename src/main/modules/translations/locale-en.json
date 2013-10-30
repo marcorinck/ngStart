@@ -5,6 +5,8 @@
 	"Contact form": "Contact form",
 	"Message": "Message",
 	"Send": "Send",
+        "Message sent": "Message sent!",
+        "Not really sent": "Not really, but almost. Message was:",
 	"about": {
 		"sampletext": "This is a sample text from the AboutController"
 	}
