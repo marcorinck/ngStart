@@ -1,5 +1,5 @@
 #ngStart [![Dependency Status](https://gemnasium.com/marcorinck/ngStart.png)](https://gemnasium.com/marcorinck/ngStart)
-
+ 
 This project is a grunt project. You need a running [nodeJS](http://nodejs.org/), [grunt](http://gruntjs.com/) and
 [bower](https://github.com/bower/bower) installation.
 
