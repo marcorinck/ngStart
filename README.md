@@ -17,7 +17,7 @@ Done.
 ##Features
 
 This project is a skeleton to use for new angular projects. It works out of the box without changes and contains
-all the boiler plate code to setup a new project and two example pages. It contains hooks for your production code, 
+all the boiler plate code to setup a new project with two example pages. It contains hooks for your production code, 
 unit tests, deployment, module loading and much more.
 
 The following libraries are used:
