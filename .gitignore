@@ -2,3 +2,5 @@ node_modules
 components
 bower_components
 target
+/WebChronikNg/nbproject/private/
+/nbproject/private/
