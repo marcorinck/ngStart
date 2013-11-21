@@ -1,4 +1,4 @@
-define(['angular', 'config/config', 'about/about', 'contact/contact', 'navbar/navbar'], function (angular, config) {
+define(['angular', 'config/config', 'angular-route', 'about/about', 'contact/contact', 'navbar/navbar'], function (angular, config) {
 	"use strict";
 
     var app = angular.module("app", config.standardAngularModules);
