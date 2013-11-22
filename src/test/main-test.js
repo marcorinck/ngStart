@@ -13,16 +13,19 @@
 
 	allTestFiles.push("app");
 	allTestFiles.push("mocks");
+	allTestFiles.push("angular-route");
 
 	require({
 		// "/base" is the URL from where karma is serving project files
 		baseUrl:'/base/src/main/modules',
 		paths:{
 			'angular':'/base/bower_components/angular/angular',
+			'angular-route':'/base/bower_components/angular-route/angular-route',
 			'mocks':'/base/bower_components/angular-mocks/angular-mocks'
 		},
 		shim:{
 			'angular':{ deps:[], exports:'angular' },
+			'angular-route':{ deps:['angular'], exports:'angular-route' },
 			'mocks':{ deps:['angular'], exports:'mocks' }
 		}
 	}, allTestFiles, function () {
