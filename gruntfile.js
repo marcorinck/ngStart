@@ -297,5 +297,5 @@ module.exports = function (grunt) {
 	grunt.registerTask('web', ['connect', 'karma:development', 'watch']);
 
 	//call grunt.loadNpmTasks for all dependencies in package.json which names start with "grunt-"
-	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  require('load-grunt-tasks')(grunt);
 };
