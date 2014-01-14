@@ -30,7 +30,7 @@
     "grunt-manifest": "0.4.x",
     "grunt-release": "0.5.x",
     "license-checker": "0.0.x",
-    "matchdep": "0.1.x"
+    "load-grunt-tasks": "0.2.0"
   },
   "engines": {
     "node": "0.10.x"
