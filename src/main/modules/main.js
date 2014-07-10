@@ -19,10 +19,7 @@
 		}
 	});
 
-	require(["config/config"], function (config) {
-
-		require(config.standardRequireModules, function (angular) {
-			angular.bootstrap(document, ["app"]);
-		});
+	require(["angular", "translate", "translate-static-loader", "translate-handler-log", "config/config", "app"], function () {
+		angular.bootstrap(document, ["app"]);
 	});
 }(require));
