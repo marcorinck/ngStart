@@ -1,16 +1,9 @@
-var app = angular.module('app',["ui.router"]);
+var app = angular.module('app',['ui.router','main','home']);
 
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise("/main");
 
-  $stateProvider
-    .state('main', {
-      url: "/main",
-        templateUrl: "modules/main/layout.html",
-        controller: function($scope) {
-      }
-    })
 });
 
