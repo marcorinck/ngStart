@@ -1,4 +1,4 @@
-var app = angular.module('app',['ui.router','main','home']);
+var app = angular.module('app',['ui.router','main','home','about']);
 
 
 app.config(function($stateProvider, $urlRouterProvider) {
@@ -6,4 +6,3 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/main");
 
 });
-
