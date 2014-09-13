@@ -42,6 +42,5 @@ The following libraries are used:
 
 The architecture (aka folder structure)  is based on this blog post: http://entwicklertagebuch.com/blog/2013/10/how-to-structure-large-angularjs-applications/
 
-###AngularJS 1.2
 
 
