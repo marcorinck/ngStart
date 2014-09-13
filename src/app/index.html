@@ -1,51 +1,36 @@
 <!doctype html>
-<!--(if target build)>
-	<html manifest="ngStart.manifest">
-<!(endif)-->
-<!--(if target local)> -->
-<html xmlns="http://www.w3.org/1999/html">
-<!--<!(endif)-->external-libs
+<html>
 <head>
-	<title>ngStart</title>
-
+	<title>ng project</title>
 	<meta charset="utf-8">
 
-	<!--(if target build)>
-		<link rel="stylesheet" href="css/ngStart.css">
-		<script src="modules/main.js" data-main="main"></script>
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css"/>
 
-	<!(endif)-->
-	<!--(if target local)> -->
-	<!--<script type="text/javascript">parent.uitest && parent.uitest.instrument(window);</script>-->
-	<script src="http://localhost:35729/livereload.js"></script>
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/bootstrap-responsive.css">
-	<link rel="stylesheet" href="css/project.css">
-	<script src="libs/require.js" data-main="modules/main"></script>
-	<!--<!(endif)-->
+  <script src="libs/jquery/dist/jquery.min.js"></script>
+  <script src="libs/angular/angular.min.js"></script>
+  <script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="libs/angular-strap/dist/angular-strap.min.js"></script>
+  <script src="libs/angular-strap/dist/angular-strap.tpl.min.js"></script>
+  <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="libs/angular-strap/dist/angular-strap.min.js"></script>
+
+  <script src="modules/app.js"></script>
+
 </head>
-<body ng-controller="navbarController">
 
+<body>
 
-<div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<a href="#" class="brand">ngStart</a>
-			<div class="nav" >
-				<ul class="nav">
-					<li ng-class="{active: isActive('/about/')}"><a href="#about"><translate>About Page</translate></a></li>
-					<li ng-class="{active: isActive('/contact/')}"><a href="#contact"><translate>Contact Page</translate></a></li>
-				</ul>
-			</div>
-			<div class="flag flag-de" ng-click="changeLanguage('de')"></div>
-			<div class="flag flag-en" ng-click="changeLanguage('en')"></div>
-		</div>
-	</div>
-</div>
-<div class="container" >
-	<div ng-view></div>
-</div>
+  <div class="container" >
 
+    <h1>ng seed project</h1>
+
+    <div ng-app="app">
+
+      <ui-view></ui-view>ui-view>
+
+    </div>
+
+  </div>
 
 </body>
 </html>

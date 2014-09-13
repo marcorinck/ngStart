@@ -1,21 +1,26 @@
 {
-	"name": "angular-template-project",
-	"homepage": "https://github.com/marcorinck/ngStart",
-	"main": "src/main/css/project.css",
-	"ignore": [
-		".jshintrc",
-		"**/*.txt"
-	],
-	"dependencies": {
-		"angular": "1.2.19",
-		"angular-route": "1.2.19",
-		"almond": "0.2.9",
-		"requirejs": "2.1.14",
-		"angular-translate": "1.0.2",
-		"angular-translate-loader-static-files": "0.1.4"
-	},
-	"devDependencies": {
-		"angular-mocks": "1.2.19",
-		"angular-translate-handler-log": "0.1.4"
-	}
+  "name": "angular-template-project",
+  "homepage": "https://github.com/marcorinck/ngStart",
+  "main": "src/main/css/project.css",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "angular": "1.2.19",
+    "angular-route": "1.2.19",
+    "almond": "0.2.9",
+    "requirejs": "2.1.14",
+    "angular-translate": "1.0.2",
+    "angular-translate-loader-static-files": "0.1.4",
+    "angular-ui-router": "~0.2.11",
+    "bootstrap": "~3.2.0",
+    "lodash": "~2.4.1",
+    "jquery": "~2.1.1",
+    "angular-strap": "~2.1.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.2.19",
+    "angular-translate-handler-log": "0.1.4"
+  }
 }
