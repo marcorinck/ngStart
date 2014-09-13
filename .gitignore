@@ -4,5 +4,6 @@ bower_components
 target
 /WebChronikNg/nbproject/private/
 /nbproject/private/
+.idea/*
 .idea
-.idea/
+src/app/libs
