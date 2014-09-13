@@ -2,12 +2,12 @@
 	"use strict";
 	require.config({
 		paths: {
-			'angular': '../../../bower_components/angular/angular',
-			'angular-route': '../../../bower_components/angular-route/angular-route',
-			'angular-mocks': '../../../bower_components/angular-mocks/angular-mocks',
-			'translate': '../../../bower_components/angular-translate/angular-translate',
-			'translate-static-loader': '../../../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files',
-			'translate-handler-log': '../../../bower_components/angular-translate-handler-log/angular-translate-handler-log'
+			'angular': 'libs/angular/angular',
+			'angular-route': 'libs/angular-route/angular-route',
+			'angular-mocks': 'libs/angular-mocks/angular-mocks',
+			'translate': 'libs/angular-translate/angular-translate',
+			'translate-static-loader': 'libs/angular-translate-loader-static-files/angular-translate-loader-static-files',
+			'translate-handler-log': 'libs/angular-translate-handler-log/angular-translate-handler-log'
 		},
 		shim: {
 			'angular': { deps: [], exports: 'angular' },

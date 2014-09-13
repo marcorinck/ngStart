@@ -37,9 +37,9 @@
   },
   "folders": {
     "build": "target/",
-    "wwwRoot": "src/main/",
-    "jsSource": "src/main/modules/",
-    "externalLibs": "src/main/external-libs/",
+    "wwwRoot": "src/app/",
+    "jsSource": "src/app/modules/",
+    "externalLibs": "src/app/libs/",
     "testRoot": "src/test/"
   }
 }

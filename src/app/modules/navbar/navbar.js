@@ -1,4 +1,4 @@
-define(['angular', 'navbar/NavbarController'], function (angular, NavbarController) {
+define(['angular', 'NavbarController'], function (angular, NavbarController) {
 	"use strict";
 
 	var navbar = angular.module("navbar", []);

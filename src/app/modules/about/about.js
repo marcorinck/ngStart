@@ -1,4 +1,4 @@
-define(['angular', 'about/AboutController', 'angular-route' ], function (angular, AboutController) {
+define(['angular', 'AboutController', 'angular-route' ], function (angular, AboutController) {
 	"use strict";
 
 	var about = angular.module("about", ['ngRoute']);

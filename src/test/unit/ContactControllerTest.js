@@ -2,7 +2,7 @@
  * the controller needs to be loaded explicitly with requireJS as the normal application only registers the
  * controllers inside the route definitions, which are not evaluated during testing, so they are not known to angularJS
  */
-define(["contact/ContactController"], function(ContactController) {
+define([".././modules/contact/ContactController"], function(ContactController) {
 
 	"use strict";
 	describe("the contactservice", function () {

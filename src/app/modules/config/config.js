@@ -1,4 +1,4 @@
-define(["angular", "config/configuration"], function(angular, configuration) {
+define(["angular", "configuration"], function(angular, configuration) {
    "use strict";
 
     var standardAngularModules = ["ngRoute", "about", "contact", "navbar", "pascalprecht.translate", "config"],
