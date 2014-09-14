@@ -1,0 +1,40 @@
+<div id="main-screen">
+
+  <!-- // Navigation // -->
+  <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="fa fa-navicon"></i>
+        </button>
+        <a class="navbar-brand" href="#/main/home"><i class="fa fa-flask"></i></a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav nav-default ">
+          <li><a href="#/main/home">Home</a></li>
+          <li><a href="#/main/about">About</a></li>
+        </ul>
+      </div>
+  </nav>
+
+
+  <!-- // Content // -->
+  <div class="container">
+    <h2>{{title}}</h2>
+
+    <!-- // Sub Content // -->
+    <ui-view>
+      <h2>Default Content</h2>
+    </ui-view>
+
+  </div>
+
+
+</div>
+<div id="footer" class="hidden-xs">
+  <div class="navbar navbar-inner navbar-default navbar-fixed-bottom">
+    <div class="container">
+      <p class="muted credit text-center">The MIT License (MIT) &nbsp; Copyright (c) 2014 Kevin Baker</p>
+    </div>
+  </div>
+</div>

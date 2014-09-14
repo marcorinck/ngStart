@@ -6,7 +6,7 @@ angular.module('main', ['main.controller'])
     $stateProvider
       .state('main', {
         url: "/main",
-        templateUrl: "modules/main/layout.html",
+        templateUrl: "modules/main/main.html",
         controller: 'MainController'
       })
   });
