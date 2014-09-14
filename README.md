@@ -9,7 +9,6 @@ This is a simple Angular.js seed project. This project organizes code into modul
 
 > The main advantages is that the code structure is based on features of the application and every feature is defining its own angularJS module. The angular root module then is the glue and binds all modules together.
 
-This allows 
 
 
 ##Installation
