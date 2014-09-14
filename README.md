@@ -5,7 +5,12 @@
 
 
 
-This is a simple Angular.js seed project inspired by <a href="https://github.com/marcorinck/ngStart">marcorinck/ngStart</a>
+This is a simple Angular.js seed project. This project organizes code into modules by feature that can be easily reused in other projects. It is inspired by <a href="https://github.com/marcorinck/ngStart">marcorinck/ngStart</a>
+
+> The main advantages is that the code structure is based on features of the application and every feature is defining its own angularJS module. The angular root module then is the glue and binds all modules together.
+
+This allows 
+
 
 ##Installation
 
