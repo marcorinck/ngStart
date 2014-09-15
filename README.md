@@ -1,8 +1,5 @@
 #ng Start Simple
 
-[![Dependency Status](https://david-dm.org/marcorinck/ngStart.png)](https://david-dm.org/marcorinck/ngStart)
-[![devDependency Status](https://david-dm.org/marcorinck/ngStart/dev-status.png)](https://david-dm.org/marcorinck/ngStart#info=devDependencies)
-
 
 
 This is a simple Angular.js seed project. This project organizes code into modules by feature that can be easily reused in other projects. It is inspired by <a href="https://github.com/marcorinck/ngStart">marcorinck/ngStart</a>
