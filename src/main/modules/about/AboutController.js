@@ -2,7 +2,10 @@ define(function () {
 	"use strict";
 
 	var AboutController = function($scope, $translate) {
-		$scope.about = $translate("about.sampletext");
+
+		$translate("about.sampletext").then(function(translation) {
+			$scope.about = translation;
+		});
 	};
 
 	AboutController.$inject = ["$scope", "$translate"];
