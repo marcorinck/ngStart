@@ -31,7 +31,7 @@
     "grunt-data-uri": "0.2.x",
     "grunt-targethtml": "0.2.x",
     "grunt-manifest": "0.4.x",
-    "grunt-release": "0.7.x",
+    "grunt-bump": "0.0.2",
     "license-checker": "0.0.x",
     "load-grunt-tasks": "1.0.0"
   },
