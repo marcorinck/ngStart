@@ -7,15 +7,15 @@
 		"**/*.txt"
 	],
 	"dependencies": {
-		"angular": "1.2.19",
-		"angular-route": "1.2.19",
+		"angular": "1.3.x",
+		"angular-route": "1.3.x",
 		"almond": "0.2.9",
-		"requirejs": "2.1.14",
-		"angular-translate": "1.0.2",
-		"angular-translate-loader-static-files": "0.1.4"
+		"requirejs": "2.1.x",
+		"angular-translate": "2.4.x",
+		"angular-translate-loader-static-files": "2.4.x"
 	},
 	"devDependencies": {
-		"angular-mocks": "1.2.19",
+		"angular-mocks": "1.3.x",
 		"angular-translate-handler-log": "0.1.4"
 	}
 }
