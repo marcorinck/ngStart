@@ -24,3 +24,45 @@
 body {
   padding-top: 70px;
 }
+
+.dashboard {
+  margin-top: 15px;
+
+  &:last-child {
+    margin-bottom: 15px;
+  }
+
+  .fa {
+    font-size: @dashboard-logo-height - 80;
+    color: firebrick;
+  }
+
+  .logo-helper {
+    min-height: @dashboard-logo-height;
+    .vertical-center();
+  }
+
+  img, i {
+    .vertical-center();
+    max-height: @dashboard-logo-height;
+  }
+
+  .product {
+    background-color: @product-background-color;
+    margin-right: 15px;
+    padding-bottom: 15px;
+    border: 1px solid @product-border-color;
+
+    h1 {
+      font-size: @font-size-base;
+    }
+  }
+
+
+}
+
+.vertical-center {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}

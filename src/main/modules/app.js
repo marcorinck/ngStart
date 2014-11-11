@@ -1,4 +1,5 @@
-define(['angular', 'config/config', 'angular-route', 'about/about', 'contact/contact', 'navbar/navbar'], function (angular, config) {
+define(['angular', 'config/config', 'angular-route', 'about/about', 'contact/contact', 'navbar/navbar', 'ngstart/ngstart'],
+	function (angular, config) {
 	"use strict";
 
     var app = angular.module("app", config.standardAngularModules);
@@ -11,7 +12,7 @@ define(['angular', 'config/config', 'angular-route', 'about/about', 'contact/con
 		$translateProvider.preferredLanguage('en');
 		$translateProvider.useMissingTranslationHandlerLog();
 
-		$routeProvider.otherwise({redirectTo: '/about/'});
+		$routeProvider.otherwise({redirectTo: '/'});
 	}]);
 
 	return app;
