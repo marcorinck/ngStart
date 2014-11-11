@@ -1,40 +1,31 @@
 <!doctype html>
-<!--(if target build)>
-	<html manifest="ngStart.manifest">
-<!(endif)-->
-<!--(if target local)> -->
+<!-- build:[manifest] project.manifest -->
 <html xmlns="http://www.w3.org/1999/html">
-<!--<!(endif)-->
+<!-- /build -->
 <head>
 	<title>ngStart</title>
 
 	<meta charset="utf-8">
 
-	<!--(if target build)>
-		<link rel="stylesheet" href="css/ngStart.css">
-		<script src="modules/main.js" data-main="main"></script>
+	<!-- build:css css/project.css-->
+	<link rel="stylesheet" href="../../target/project.css">
+	<!-- /build -->
 
-	<!(endif)-->
-	<!--(if target local)> -->
-	<!--<script type="text/javascript">parent.uitest && parent.uitest.instrument(window);</script>-->
-	<script src="http://localhost:35729/livereload.js"></script>
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/bootstrap-responsive.css">
-	<link rel="stylesheet" href="css/project.css">
-	<script src="../../bower_components/requirejs/require.js" data-main="modules/main"></script>
-	<!--<!(endif)-->
 </head>
 <body ng-controller="navbarController">
-<div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<a href="#" class="brand">ngStart</a>
-			<div class="nav" >
-				<ul class="nav">
-					<li ng-class="{active: isActive('/about/')}"><a href="#about"><translate>About Page</translate></a></li>
-					<li ng-class="{active: isActive('/contact/')}"><a href="#contact"><translate>Contact Page</translate></a></li>
-				</ul>
-			</div>
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<a href="#" class="navbar-brand"><i class="fa fa-flag"></i> ngStart</a>
+		</div>
+
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li ng-class="{active: isActive('/about/')}"><a href="#about"><translate>About Page</translate></a></li>
+				<li ng-class="{active: isActive('/contact/')}"><a href="#contact"><translate>Contact Page</translate></a></li>
+			</ul>
+
+
 			<div class="flag flag-de" ng-click="changeLanguage('de')"></div>
 			<div class="flag flag-en" ng-click="changeLanguage('en')"></div>
 		</div>
@@ -44,6 +35,10 @@
 	<div ng-view></div>
 </div>
 
+<!-- build:js modules/main.js -->
+<script src="http://localhost:35729/livereload.js"></script>
+<script src="../../bower_components/requirejs/require.js" data-main="modules/main"></script>
+<!-- /build -->
 
 </body>
 </html>
