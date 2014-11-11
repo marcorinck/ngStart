@@ -53,8 +53,12 @@ body {
     padding-bottom: 15px;
     border: 1px solid @product-border-color;
 
+    @media (max-width: @screen-xs-max) {
+      margin-top: 15px;
+    }
+
     h1 {
-      font-size: @font-size-base;
+      font-size: @font-size-h3;
     }
   }
 
