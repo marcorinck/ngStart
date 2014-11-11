@@ -11,11 +11,7 @@ module.exports = function (grunt) {
 				'* Copyright (c) <%= grunt.template.today("yyyy") %> */'
 		},
 		clean: {
-			all: ['<%=pkg.folders.build %>'],
-			css: {
-				src: ['<%= pkg.folders.build + pkg.name + "-" + pkg.version %>/css/*.css',
-						'!<%= pkg.folders.build + pkg.name + "-" + pkg.version %>/css/<%= pkg.name %>.css']
-			}
+			all: ['<%=pkg.folders.build %>']
 		},
 		jshint: {
 			src: '<%=pkg.folders.jsSource %>' + '**/*.js',
@@ -24,6 +20,97 @@ module.exports = function (grunt) {
 				jshintrc: '.jshintrc',
 				globals: {
 				}
+			}
+		},
+		requirejs: {
+			compile: {
+				options: {
+					baseUrl: "<%= pkg.folders.jsSource %>",
+					name: "../../../bower_components/almond/almond",
+					include: "main",
+					mainConfigFile: "<%= pkg.folders.jsSource %>/main.js",
+					out: "<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/modules/main.js",
+					optimize: "uglify2",
+					paths: {
+						'angular':'../../../bower_components/angular/angular.min',
+						'config/configuration': 'config/<%=configuration%>'
+					},
+					generateSourceMaps: false,
+					preserveLicenseComments: true,
+					useSourceUrl: true,
+					uglify2: {
+						// TODO - angular.js is already minified, mangling destroys it, so mangling is currently globally disabled
+						mangle: false
+					}
+				}
+			}
+		},
+		less: {
+			development: {
+				options: {
+					modifyVars: {
+						"fa-font-path": '"../src/main/fonts/"',
+						"icon-font-path": '"../src/main/fonts/"'
+					}
+				},
+				files: {
+					"<%=pkg.folders.build%>/project.css": "<%=pkg.folders.wwwRoot%>/less/project.less"
+				}
+			},
+			production: {
+				options: {
+					cleancss: true,
+					report: 'gzip'
+				},
+				files: {
+					"<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/css/project.css": "<%=pkg.folders.wwwRoot%>/less/project.less"
+				}
+			}
+		},
+		autoprefixer: {
+			options: {
+				browsers: ["last 2 android versions", "last 2 chrome versions", "last 2 chromeandroid versions", "last 2 BlackBerry versions", "last 2 Firefox versions", "last 2 FirefoxAndroid versions", "last 2 iOS versions", "last 2 OperaMobile versions", "last 2 Safari versions", "last 2 ExplorerMobile versions"]
+			},
+			development: {
+				src: '<%=pkg.folders.build%>/project.css',
+				dest: '<%=pkg.folders.build%>/project.css'
+			},
+			production: {
+				options: {
+					cascade: false
+				},
+				src: "<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/css/project.css",
+				dest: "<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/css/project.css"
+			}
+		},
+		processhtml: {
+			build: {
+				files: {
+					"<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/index.html": ['<%=pkg.folders.wwwRoot%>/index.html']
+				}
+			}
+		},
+		appcache: {
+			options: {
+				basePath: "<%=pkg.folders.build + pkg.name + '-' + pkg.version%>"
+			},
+			build: {
+				dest: "<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/project.manifest",
+				cache: "<%=pkg.folders.build + pkg.name + '-' + pkg.version%>/**/*",
+				network: '*',
+				fallback: ''
+			}
+		},
+		compress: {
+			tgz: {
+				options: {
+					mode: "tgz",
+					archive: "<%= pkg.folders.build + pkg.name + '-' + pkg.version + '.tar.gz'%>"
+				},
+				expand: true,
+				src:  ['**/*', '**/.*'],
+				dest: '<%= pkg.name + "-" + pkg.version %>/',
+				cwd: '<%= pkg.folders.build + pkg.name + "-" + pkg.version %>/'
 			}
 		},
 		watch: {
@@ -35,13 +122,14 @@ module.exports = function (grunt) {
 				}
 			},
 			html: {
-				files: ['<%=pkg.folders.wwwRoot %>' + '*.html'],
+				files: ['<%=pkg.folders.wwwRoot %>' + '**/*.html'],
 				options: {
 					livereload: true
 				}
 			},
-			css: {
-				files: ['<%=pkg.folders.wwwRoot %>' + 'css/*'],
+			less: {
+				files: ['<%=pkg.folders.wwwRoot %>' + 'less/*'],
+				tasks: ['less:development', 'autoprefixer:development'],
 				options: {
 					livereload: true
 				}
@@ -54,68 +142,7 @@ module.exports = function (grunt) {
 			},
 			karma: {
 				files: ['<%=pkg.folders.testRoot + "**/*.js" %>'],
-				tasks: ['karma:development:run']
-			}
-		},
-		targethtml: {
-			build: {
-				files: {
-					'<%= pkg.folders.build + pkg.name + "-" + pkg.version %>/': '<%=pkg.folders.wwwRoot %>*.html'
-				}
-			}
-		},
-		copy: {
-			css: {
-				files: [{
-					expand: true,
-					dest: '<%= pkg.folders.build + pkg.name + "-" + pkg.version %>/css/',
-					src: ['*.css'],
-					cwd: '<%= pkg.folders.wwwRoot%>css/'
-				}]
-			},
-			images: {
-				files: [{
-					expand: true,
-					dest: '<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/images/build/',
-					src: ['**', "!**/README"],
-					cwd: '<%= pkg.folders.wwwRoot%>images/build/'
-				}]
-			},
-			modules: {
-				files: [{
-					expand: true,
-					dest: '<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/modules/',
-					src: ['**', '!**/*.js', "!**/README"],
-					cwd: '<%= pkg.folders.wwwRoot%>modules/'
-				}]
-			},
-			deploy: {
-				files: [{
-					expand: true,
-					dest: '<%=deployOrdner %>',
-					src: ['<%= pkg.name + "-" + pkg.version + ".tar.gz"%>'],
-					cwd: '<%= pkg.folders.build%>'
-				}]
-			},
-			htaccess: {
-				files: [{
-					expand: true,
-					dest: '<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/',
-					src: ['.htaccess'],
-					cwd: '<%= pkg.folders.wwwRoot%>'
-				}]
-			}
-		},
-		cssmin: {
-			css: {
-				files: {
-					'<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/css/<%= pkg.name %>.css': [
-							//include all css files in correct order, add new files in desired order
-							'<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/css/bootstrap.css',
-							'<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/css/bootstrap-responsive.css',
-							'<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/css/project.css'
-						]
-				}
+				tasks: ['jshint', 'karma:development:run']
 			}
 		},
 		karma: {
@@ -133,41 +160,6 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-		compress: {
-			tgz: {
-				options: {
-					mode: "tgz",
-					archive: "<%= pkg.folders.build + pkg.name + '-' + pkg.version + '.tar.gz'%>"
-				},
-				expand: true,
-				src:  ['**/*', '**/.*'],
-				dest: '<%= pkg.name + "-" + pkg.version %>/',
-				cwd: '<%= pkg.folders.build + pkg.name + "-" + pkg.version %>/'
-			}
-		},
-		requirejs: {
-			compile: {
-				options: {
-					baseUrl: "<%= pkg.folders.jsSource %>",
-					name: "../../../bower_components/almond/almond",
-					include: "main",
-					mainConfigFile: "<%= pkg.folders.jsSource %>/main.js",
-					out: "<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/modules/main.js",
-					optimize: "none",
-					paths: {
-						'angular':'../../../bower_components/angular/angular.min',
-						'config/configuration': 'config/<%=configuration%>'
-					},
-					generateSourceMaps: true,
-					preserveLicenseComments: false,
-					useSourceUrl: true,
-					uglify2: {
-						// TODO - angular.js is already minified, mangling destroys it, so mangling is currently globally disabled
-						mangle: false
-					}
-				}
-			}
-		},
 		connect: {
 			server: {
 				options:  {
@@ -177,22 +169,46 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-		manifest: {
-			generate: {
-				options: {
-					basePath: "<%=pkg.folders.build + pkg.name + '-' + pkg.version%>",
-					network: ["*"],
-					fallback: [],
-					exclude: [],
-					preferOnline: false,
-					timestamp: true
-				},
-
-				src: ["**/*", "!modules/main.js.map", "!modules/main.js.src",
-					//TODO - remove folder names manually, update grunt-manifest to have it done automatically
-					"!js", "!css", "!images", "!images/build", "!modules", "!modules/about", "!modules/contact",
-					"!modules/navbar", "!modules/translations"],
-				dest: "<%= pkg.folders.build + pkg.name + '-' + pkg.version + '/' + pkg.name %>.manifest"
+		copy: {
+			images: {
+				files: [{
+					expand: true,
+					dest: '<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/images/build/',
+					src: ['**', "!**/README"],
+					cwd: '<%= pkg.folders.wwwRoot%>images/build/'
+				}]
+			},
+			fonts: {
+				files: [{
+					expand: true,
+					dest: '<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/fonts/',
+					src: ['**'],
+					cwd: '<%= pkg.folders.wwwRoot%>font/'
+				}]
+			},
+			deploy: {
+				files: [{
+					expand: true,
+					dest: '<%=deployOrdner %>',
+					src: ['<%= pkg.name + "-" + pkg.version + ".tar.gz"%>'],
+					cwd: '<%= pkg.folders.build%>'
+				}]
+			},
+			htaccess: {
+				files: [{
+					expand: true,
+					dest: '<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/',
+					src: ['.htaccess'],
+					cwd: '<%= pkg.folders.wwwRoot%>'
+				}]
+			},
+			translations: {
+				files: [{
+					expand: true,
+					dest: '<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/translations/',
+					src: ['*.json'],
+					cwd: '<%= pkg.folders.wwwRoot%>/translations/'
+				}]
 			}
 		},
 		license: {
@@ -201,17 +217,6 @@ module.exports = function (grunt) {
 				start: '.',
 				depth: null,
 				output: "file"
-			}
-		},
-		dataUri: {
-			dist: {
-				src: ['<%=pkg.folders.wwwRoot %>css/*.css'],
-				dest: '<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/css/',
-				options: {
-					target: ['<%=pkg.folders.wwwRoot %>images/*.*'],
-					fixDirLevel: true,
-					baseDir: '<%=pkg.folders.wwwRoot %>css'
-				}
 			}
 		},
 		push: {
@@ -234,7 +239,7 @@ module.exports = function (grunt) {
 		}
 	});
 
-	grunt.registerTask("install", "Create a deployable artifact for production servers",
+	grunt.registerTask("install", "Create a deployable artifact for server environments",
 		function (system) {
 			grunt.task.run("jshint");
 			grunt.task.run("clean:all");
@@ -246,14 +251,14 @@ module.exports = function (grunt) {
 			}
 
 			grunt.task.run("requirejs");
-			grunt.task.run("dataUri");
-			grunt.task.run("cssmin");
-			grunt.task.run("clean:css");
+			grunt.task.run("less:production");
+			grunt.task.run("autoprefixer:production");
 			grunt.task.run("copy:images");
-			grunt.task.run("copy:modules");
+			grunt.task.run("copy:fonts");
 			grunt.task.run("copy:htaccess");
-			grunt.task.run("targethtml:build");
-			grunt.task.run("manifest");
+			grunt.task.run("copy:translations");
+			grunt.task.run("processhtml:build");
+			grunt.task.run("appcache:build");
 			grunt.task.run("compress");
 		}
 	);
@@ -307,7 +312,7 @@ module.exports = function (grunt) {
 	});
 
 	grunt.registerTask('default', ['jshint']);
-	grunt.registerTask('web', ['connect', 'karma:development', 'watch']);
+	grunt.registerTask('web', ['less:development', 'autoprefixer:development', 'connect:server', 'karma:development', 'watch']);
 
 	//call grunt.loadNpmTasks for all dependencies in package.json which names start with "grunt-"
   require('load-grunt-tasks')(grunt);
