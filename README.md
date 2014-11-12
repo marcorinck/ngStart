@@ -29,11 +29,14 @@ The following libraries are used:
 * [bower](https://github.com/bower/bower) (for dependeny management of javascript libraries to be loaded in browser)
 * [requireJS](http://requirejs.org/) (for javascript module loading and optimization)
 * [jslint](http://www.jslint.com/) (for quality checking of javascript code)
-* [grunt-manifest](https://github.com/gunta/grunt-manifest) (an appcache manifest will be created when creating a deployable artifact)
-* [grunt-targethtml](https://github.com/changer/grunt-targethtml) (filtering of html files for deployment on production servers)
-* [grunt-data-uri](https://github.com/ahomu/grunt-data-uri) Embeds all referenced images in css files in the generated project css file, which is optimized by grunt
+* [Twitter Bootstrap](http://www.getbootstrap.com) (Less source files)(http://www.lesscss.org), [Font Awesome](fortawesome.github.io/Font-Awesome/icons/) (Less source files and fonts) and [ui bootstrap](http://angular-ui.github.io/bootstrap/) included and fully configured
+* [grunt-appcache](https://github.com/canvace/grunt-appcache/) (an appcache manifest will be created when creating a deployable artifact)
+* [grunt-processhtml](https://github.com/dciccale/grunt-processhtml) (filtering of html files for deployment on production servers)
+* [Less compiler](http://lesscss.org/) Less compiler is picking up your changes in Less files during development automatically and during build
 * [karma](http://karma-runner.github.io/) (as a test runner for unit and ui tests)
 * [angular-translate](https://github.com/PascalPrecht/angular-translate) (for i18n)
+
+And many more. 
  
 ###Architecture
 
@@ -41,11 +44,9 @@ The following libraries are used:
 
 I wrote a blog post about the architecture (aka folder structure) in this project: http://entwicklertagebuch.com/blog/2013/10/how-to-structure-large-angularjs-applications/
 
-###angularJS 1.2
+###angularJS
 
-ngStart currently uses the stable version of angularJS 1.0.x. AngularJS 1.2.x does not work out of the box as there are some breaking changes most notably for defining routes with $routeProvider. 
-
-However, there is already a branch for angularJS 1.2 with all needed changes to run ngStart with current release candidate: [ngStart@angularJS1.2](https://github.com/marcorinck/ngStart/tree/angular1.2)
+ngStart currently uses the stable version of angularJS 1.3.x. 
 
 ###Differences to yeoman and angular-seed
 This project is very similar to [yeoman](http://yeoman.io/) or [angular-seed](https://github.com/angular/angular-seed).
@@ -62,24 +63,17 @@ so I took the hard way and learned it by making my own build system. Which event
 
 ##Usage
 
-As browsers have a security model for files loaded from file URLs (file://....) angular projects should be loaded
-from webservers even when doing local development. This project uses grunts built-in webserver to serve project files
-(via [grunt-contrib-connect](https://github.com/gruntjs/grunt-contrib-connect)).
+During development you will want to use the `grunt web` target which will start a web server from where you can open your application.
 
 While running this web server following actions will be run automatically:
 
 * serve all project files via http://localhost:8000, URL for index page is [http://localhost:8000/src/main/index.html](http://localhost:8000/src/main/index.html)
 * jslint all javascript files (after changes in javascript files)
-* unit-tests (after changes in javascript files)
-* live reloading of ressources via grunt-watch (after changes in HTML/JS/CSS files)
+* run unit tests (after changes in javascript files)
+* start Less compiler after changes in Less files
+* live reloading of ressources via grunt-watch (after changes in HTML/JS/Less files)
 
-To start the local web server:
-
-	grunt web
-
-(this runs jslint and unit-tests after javascript files are changed)
-
-Create a deployable artifact:
+Create a deployable artifact for a server environment:
 
 	grunt install
 
@@ -155,33 +149,27 @@ The generated appcache manifest is included for production use only and not in l
 
 All html files in *src/main/* will be automatically filtered with [grunt-targethtml](https://github.com/changer/grunt-targethtml)
 
-###CSS files
+###Less files (compiled to CSS)
 
-You can create as many css files as you want. You should place them in the [src/main/css](src/main/css/) folder.
-*grunt install* will pick them up automatically from there.
+There are no CSS files included in the project as all stylings are based on Less compiler. 
 
-You must load all css files in the HTML files manually for local development with *grunt web* target (via <link> tag).
-Look for the sample.css file that is loaded in the sample index.html.
+Less files will be automatically compiled to CSS during development after changes to them and livereload will reload the changes automatically into the page. Twitter Bootstrap and Font Awesome are included via their Less source files too.
 
-During grunt build ( *grunt install* ) and while creating a deployable artificat all css files will be concatenated and optimized
-into one big css file. The grunt build has to know about the correct order of css files to do this. Currently you have
-to configure the order yourself inside the [gruntfile.js](gruntfile.js). I have added a comment where to do that.
-
-If you want to implement a more user-friendly version for the configuration, go ahead and fix
-[issue #6](https://github.com/marcorinck/ngStart/issues/6).
+During grunt deployment build ( *grunt install* ) less compiler will be started with optimizations turned on. Result is an optimized CSS file which will be put in css folder and will be referenced in filtered index.html.
 
 ###Images
 
-Image files which are referenced in the project css files will be automatically embedded into the generated and
-optimized css file of the project as data URIs. Image files need to placed into the [src/main/images](src/main/images/)
-folder to be found.
+Its good practice to include small image files like icons as data-uris into the generated CSS files to save HTTP requests. Though data URI images are ~30% bigger than the original image, the browser saves heavily on HTTP requests. Thus, for icons its usually faster to load them as data URIs than directly via HTTP and as we are using Less compiler, its very easy to include images as data-uris.
 
-Though data URI images are ~30% bigger than the original image, the browser saves heavily on HTTP requests. Thus, for
-icons its usually faster to load them as data URIs than directly via HTTP.
+````less
+.icon {
+  background-image: data-uri(images/icons.png);
+}
+````
 
-**Warning**: No images inside the *images* folder will be included in the artifact generated by the *grunt install* goal.
-If you need to deploy images on your webserver (usually only bigger images like in galleries) you need to place them into the
-[src/main/images/build](src/main/images/build/) which *will* be included in the artifact.
+The folder [src/main/images](src/main/images/) is meant for those images. As such, no files in this folder will be included in the deployment builds.
+
+If you have bigger images (like in media galleries or large background images) you shouln't include them as data URIs because of the added file size. When you want to have images included during deployment build, you should place them in [src/main/images/build](src/main/images/build)
 
 ###Configuration
 
@@ -196,5 +184,5 @@ Afterwards, you can do specific builds for these environments like this:
 
 	grunt install:environmentName
 
-The configuration parameters are available as an angular constant too, just declare a dependency to "config". There is an
+The configuration parameters are available as an angular constant too, just declare an angularJS dependency to "config". There is an
 example for that in [src/main/modules/contact/ContactController.js](src/main/modules/contact/ContactController.js)
