@@ -6,7 +6,7 @@ define(['angular', 'config/config', 'angular-route', 'about/about', 'contact/con
 
 	app.config(['$httpProvider', '$routeProvider', '$translateProvider', function ($httpProvider, $routeProvider, $translateProvider) {
 		$translateProvider.useStaticFilesLoader({
-			prefix: 'modules/translations/locale-',
+			prefix: 'translations/',
 			suffix: '.json'
 		});
 		$translateProvider.preferredLanguage('en');
