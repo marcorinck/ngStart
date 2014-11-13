@@ -22,18 +22,39 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+		ngtemplates: {
+			production: {
+				cwd: '<%= pkg.folders.wwwRoot %>',
+				src: 'modules/**/*.html',
+				dest: '<%= pkg.folders.build %>/templates.js',
+				options: {
+					htmlmin: {
+						collapseBooleanAttributes: true,
+						removeAttributeQuotes: true,
+						removeComments: true,
+						removeEmptyAttributes: true,
+						removeScriptTypeAttributes: true,
+						removeStyleLinkTypeAttributes: true
+					},
+					bootstrap:  function(module, script) {
+						return 'define(["angular"], function (angular) {"use strict"; var templates = angular.module("templates", []); templates.run(["$templateCache", function($templateCache) {' + script + '}]); return templates; });';
+					}
+				}
+			}
+		},
 		requirejs: {
 			compile: {
 				options: {
 					baseUrl: "<%= pkg.folders.jsSource %>",
-					name: "../../../bower_components/almond/almond",
+					name: "../../bower_components/almond/almond",
 					include: "main",
 					mainConfigFile: "<%= pkg.folders.jsSource %>/main.js",
 					out: "<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/modules/main.js",
 					optimize: "uglify2",
 					paths: {
 						'angular':'../../bower_components/angular/angular.min',
-						'config/configuration': 'config/<%=configuration%>'
+						'config/configuration': 'config/<%=configuration%>',
+						'templates': '../../<%= pkg.folders.build %>/templates'
 					},
 					generateSourceMaps: false,
 					preserveLicenseComments: true,
@@ -183,7 +204,7 @@ module.exports = function (grunt) {
 					expand: true,
 					dest: '<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/fonts/',
 					src: ['**'],
-					cwd: '<%= pkg.folders.wwwRoot%>font/'
+					cwd: '<%= pkg.folders.wwwRoot%>fonts/'
 				}]
 			},
 			deploy: {
@@ -250,6 +271,7 @@ module.exports = function (grunt) {
 				grunt.config('configuration', "configuration");
 			}
 
+			grunt.task.run("ngtemplates");
 			grunt.task.run("requirejs");
 			grunt.task.run("less:production");
 			grunt.task.run("autoprefixer:production");
