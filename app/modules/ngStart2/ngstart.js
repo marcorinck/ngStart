@@ -5,7 +5,7 @@ define(['angular', 'ngStart/NgStartController'], function (angular, NgStartContr
 
 	ngstart.config(["$routeProvider", function($routeProvider) {
 		$routeProvider.when('/', {
-			templateUrl: 'modules/ngStart/ngstart.html',
+			templateUrl: 'modules/ngStart2/ngstart.html',
 			controller: NgStartController
 		});
 
