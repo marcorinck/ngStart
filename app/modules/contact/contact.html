@@ -19,9 +19,7 @@
 </div>
 <div class="row">
 	<div class="col-xs-4">
-		<h2>
-			<translate>Author</translate>
-		</h2>
+		<h2 translate="Author"></h2>
 		<p>{{ author }}</p>
 
 		<p><a href="mailto: {{ email }}">{{ email}}</a></p>
@@ -31,17 +29,16 @@
 		<p>Configuration used for building: "{{ system }}" </p>
 	</div>
 	<div class="col-xs-8">
-		<h2>
-			<translate>Contact form</translate>
-		</h2>
+		<h2 translate="Contact form"></h2>
+
 		<form ng-submit="sendMessage()">
 			<fieldset>
 				<div class="form-group">
-					<label for="text"><translate>Message</translate></label>
+					<label for="text" translate="Message"></label>
 					<textarea id="text" class="form-control" ng-model="message.text" rows="10" ng-change="messageChanged()"></textarea>
 				</div>
 
-				<button class="btn btn-primary" ng-disabled="!message.text"><translate>Send</translate></button>
+				<button class="btn btn-primary" ng-disabled="!message.text" translate="Send"></button>
 			</fieldset>
 		</form>
 	</div>
