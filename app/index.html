@@ -13,21 +13,31 @@
 
 </head>
 <body ng-controller="navbarController">
-<div class="navbar navbar-default navbar-fixed-top">
+
+<div class="navbar navbar-default header">
 	<div class="container">
 		<div class="navbar-header">
-			<a href="#/" class="navbar-brand"><i class="fa fa-flag"></i> ngStart</a>
+			<a href="#/" class="navbar-brand">ngStart<span class="hidden-xs"> - angularjs starter template</span></a>
 		</div>
 
 		<div class="collapse navbar-collapse">
-			<ul class="nav navbar-nav">
-				<li ng-class="{active: isActive('/about/')}"><a href="#about" translate="About Page"></a></li>
-				<li ng-class="{active: isActive('/contact/')}"><a href="#contact" translate="Contact Page"></a></li>
-			</ul>
+			<!--<ul class="nav navbar-nav">-->
+				<!--<li ng-class="{active: isActive('/about/')}"><a href="#about" translate="About Page"></a></li>-->
+				<!--<li ng-class="{active: isActive('/contact/')}"><a href="#contact" translate="Contact Page"></a></li>-->
+			<!--</ul>-->
 
 
 			<div class="flag flag-de" ng-click="changeLanguage('de_DE')"></div>
 			<div class="flag flag-en" ng-click="changeLanguage('en_EN')"></div>
+		</div>
+	</div>
+</div>
+
+<div class="subheader">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-xs-12 ">a fully operational build system to quickstart new html5 projects</div>
 		</div>
 	</div>
 </div>

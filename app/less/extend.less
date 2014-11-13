@@ -21,8 +21,23 @@
   background-image: data-uri('@{ngstart-images-path}/en.png');
 }
 
-body {
-  padding-top: 70px;
+.header {
+  background-color: @navbar-header-color;
+  padding: 15px;
+  margin-bottom: 0;
+
+  .navbar-brand {
+    font-size: @font-size-h1;
+    color: lighten(@light3, 10%);
+    .text-overflow();
+  }
+}
+
+.subheader {
+  background-color: lighten(@light3, 10%);
+  padding: 10px;
+  color: darken(@light3, 20%);
+  font-size: @font-size-h3;
 }
 
 .dashboard {
@@ -34,7 +49,7 @@ body {
 
   .fa {
     font-size: @dashboard-logo-height - 80;
-    color: firebrick;
+    color: @light4;
   }
 
   .logo-helper {
@@ -49,12 +64,12 @@ body {
 
   .product {
     background-color: @product-background-color;
-    margin-right: 15px;
+//    margin-right: 15px;
     padding-bottom: 15px;
     border: 1px solid @product-border-color;
 
     @media (max-width: @screen-xs-max) {
-      margin-top: 15px;
+//      margin-top: 15px;
     }
 
     h1 {
@@ -70,3 +85,8 @@ body {
   vertical-align: middle;
   float: none;
 }
+
+body {
+  background-color: @light1;
+}
+
