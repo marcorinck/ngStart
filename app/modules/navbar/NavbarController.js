@@ -7,7 +7,7 @@ define(function () {
 		};
 
 		$scope.changeLanguage = function(language) {
-			$translate.uses(language);
+			$translate.use(language);
 		};
 
 	};
