@@ -76,7 +76,7 @@ module.exports = function (grunt) {
 					}
 				},
 				files: {
-					"<%=pkg.folders.build%>/project.css": "<%=pkg.folders.wwwRoot%>/less/project.less"
+					"<%=pkg.folders.build + '/' + pkg.name %>.css": "<%=pkg.folders.wwwRoot%>/less/<%=pkg.name %>.less"
 				}
 			},
 			production: {
@@ -85,7 +85,7 @@ module.exports = function (grunt) {
 					report: 'gzip'
 				},
 				files: {
-					"<%= outputDir %>/css/project.css": "<%=pkg.folders.wwwRoot%>/less/project.less"
+					"<%= outputDir %>/css/<%=pkg.name %>.css": "<%=pkg.folders.wwwRoot%>/less/<%= pkg.name%>.less"
 				}
 			}
 		},
@@ -94,15 +94,15 @@ module.exports = function (grunt) {
 				browsers: ["last 2 android versions", "last 2 chrome versions", "last 2 chromeandroid versions", "last 2 BlackBerry versions", "last 2 Firefox versions", "last 2 FirefoxAndroid versions", "last 2 iOS versions", "last 2 OperaMobile versions", "last 2 Safari versions", "last 2 ExplorerMobile versions"]
 			},
 			development: {
-				src: '<%=pkg.folders.build%>/project.css',
-				dest: '<%=pkg.folders.build%>/project.css'
+				src: '<%=pkg.folders.build%>/<%= pkg.name %>.css',
+				dest: '<%=pkg.folders.build%>/<%= pkg.name%>.css'
 			},
 			production: {
 				options: {
 					cascade: false
 				},
-				src: "<%= outputDir %>/css/project.css",
-				dest: "<%= outputDir %>/css/project.css"
+				src: "<%= outputDir %>/css/<%= pkg.name %>.css",
+				dest: "<%= outputDir %>/css/<%= pkg.name %>.css"
 			}
 		},
 		processhtml: {
@@ -117,7 +117,7 @@ module.exports = function (grunt) {
 				basePath: "<%= outputDir %>"
 			},
 			build: {
-				dest: "<%= outputDir %>/project.manifest",
+				dest: "<%= outputDir %>/<%= pkg.name %>.manifest",
 				cache: "<%= outputDir %>/**/*",
 				network: '*',
 				fallback: ''
