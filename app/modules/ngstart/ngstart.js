@@ -1,4 +1,4 @@
-define(['angular', 'ngStart/NgStartController'], function (angular, NgStartController) {
+define(['angular', 'ngstart/NgStartController'], function (angular, NgStartController) {
 	"use strict";
 
 	var ngstart = angular.module("ngstart", ['ngRoute']);
