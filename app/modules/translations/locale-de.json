@@ -1,0 +1,13 @@
+{
+	"Contact Page": "Kontaktseite",
+	"About Page": "Über dieses Projekt",
+	"Author": "Autor",
+	"Contact form": "Kontakt",
+	"Message": "Nachricht",
+	"Send": "Absenden",
+	"Message sent": "Nachricht gesendet!",
+	"Not really sent": "Nicht wirklich, aber fast. Die Nachricht war:",
+	"about": {
+		"sampletext": "Das ist ein Beispieltext aus dem AboutController"
+	}
+}

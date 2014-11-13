@@ -1,0 +1,4 @@
+Place images referenced from css files here. All images will then be included as data-URIs in generated and optimized
+css file.
+
+WARNING: No file inside this folder will be included in deployment artifact created by "grunt install task.

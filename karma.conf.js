@@ -5,10 +5,10 @@ module.exports = function (config) {
 		basePath: '.',
 
 		files: [
-			'src/test/main-test.js',
+			'test/main-test.js',
 			{pattern: 'bower_components/**/*.js', included: false},
-			{pattern: 'src/test/unit/**/*.js', included: false},
-			{pattern: 'src/main/modules/**/*.js', included: false}
+			{pattern: 'test/unit/**/*.js', included: false},
+			{pattern: 'app/modules/**/*.js', included: false}
 
 		],
 

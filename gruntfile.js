@@ -32,7 +32,7 @@ module.exports = function (grunt) {
 					out: "<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/modules/main.js",
 					optimize: "uglify2",
 					paths: {
-						'angular':'../../../bower_components/angular/angular.min',
+						'angular':'../../bower_components/angular/angular.min',
 						'config/configuration': 'config/<%=configuration%>'
 					},
 					generateSourceMaps: false,
@@ -49,8 +49,8 @@ module.exports = function (grunt) {
 			development: {
 				options: {
 					modifyVars: {
-						"fa-font-path": '"../src/main/fonts/"',
-						"icon-font-path": '"../src/main/fonts/"'
+						"fa-font-path": '"../app/fonts/"',
+						"icon-font-path": '"../app/fonts/"'
 					}
 				},
 				files: {

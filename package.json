@@ -40,9 +40,9 @@
   },
   "folders": {
     "build": "target/",
-    "wwwRoot": "src/main/",
-    "jsSource": "src/main/modules/",
-    "externalLibs": "src/main/external-libs/",
-    "testRoot": "src/test/"
+    "wwwRoot": "app/",
+    "jsSource": "app/modules/",
+    "externalLibs": "app/external-libs/",
+    "testRoot": "test/"
   }
 }
