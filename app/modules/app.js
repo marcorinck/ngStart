@@ -9,7 +9,7 @@ define(['angular', 'config/config', 'angular-route', 'about/about', 'contact/con
 			prefix: 'translations/',
 			suffix: '.json'
 		});
-		$translateProvider.preferredLanguage('en');
+		$translateProvider.determinePreferredLanguage();
 		$translateProvider.useMissingTranslationHandlerLog();
 
 		$routeProvider.otherwise({redirectTo: '/'});
