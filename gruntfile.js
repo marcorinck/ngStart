@@ -10,6 +10,7 @@ module.exports = function (grunt) {
 				'<%= pkg.homepage ? "* " + pkg.homepage + "\n" : "" %>' +
 				'* Copyright (c) <%= grunt.template.today("yyyy") %> */'
 		},
+		outputDir: '<%= pkg.folders.build + pkg.name + "-" + pkg.version %>',
 		clean: {
 			all: ['<%=pkg.folders.build %>']
 		},
@@ -49,7 +50,7 @@ module.exports = function (grunt) {
 					name: "../../bower_components/almond/almond",
 					include: "main",
 					mainConfigFile: "<%= pkg.folders.jsSource %>/main.js",
-					out: "<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/modules/main.js",
+					out: "<%= outputDir %>/modules/main.js",
 					optimize: "uglify2",
 					paths: {
 						'angular':'../../bower_components/angular/angular.min',
@@ -84,7 +85,7 @@ module.exports = function (grunt) {
 					report: 'gzip'
 				},
 				files: {
-					"<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/css/project.css": "<%=pkg.folders.wwwRoot%>/less/project.less"
+					"<%= outputDir %>/css/project.css": "<%=pkg.folders.wwwRoot%>/less/project.less"
 				}
 			}
 		},
@@ -100,24 +101,24 @@ module.exports = function (grunt) {
 				options: {
 					cascade: false
 				},
-				src: "<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/css/project.css",
-				dest: "<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/css/project.css"
+				src: "<%= outputDir %>/css/project.css",
+				dest: "<%= outputDir %>/css/project.css"
 			}
 		},
 		processhtml: {
 			build: {
 				files: {
-					"<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/index.html": ['<%=pkg.folders.wwwRoot%>/index.html']
+					"<%= outputDir %>/index.html": ['<%=pkg.folders.wwwRoot%>/index.html']
 				}
 			}
 		},
 		appcache: {
 			options: {
-				basePath: "<%=pkg.folders.build + pkg.name + '-' + pkg.version%>"
+				basePath: "<%= outputDir %>"
 			},
 			build: {
-				dest: "<%= pkg.folders.build + pkg.name + '-' + pkg.version %>/project.manifest",
-				cache: "<%=pkg.folders.build + pkg.name + '-' + pkg.version%>/**/*",
+				dest: "<%= outputDir %>/project.manifest",
+				cache: "<%= outputDir %>/**/*",
 				network: '*',
 				fallback: ''
 			}
@@ -131,7 +132,7 @@ module.exports = function (grunt) {
 				expand: true,
 				src:  ['**/*', '**/.*'],
 				dest: '<%= pkg.name + "-" + pkg.version %>/',
-				cwd: '<%= pkg.folders.build + pkg.name + "-" + pkg.version %>/'
+				cwd: '<%= outputDir %>/'
 			}
 		},
 		watch: {
@@ -194,7 +195,7 @@ module.exports = function (grunt) {
 			images: {
 				files: [{
 					expand: true,
-					dest: '<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/images/build/',
+					dest: '<%= outputDir %>/images/build/',
 					src: ['**', "!**/README"],
 					cwd: '<%= pkg.folders.wwwRoot%>images/build/'
 				}]
@@ -202,7 +203,7 @@ module.exports = function (grunt) {
 			fonts: {
 				files: [{
 					expand: true,
-					dest: '<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/fonts/',
+					dest: '<%= outputDir %>/fonts/',
 					src: ['**'],
 					cwd: '<%= pkg.folders.wwwRoot%>fonts/'
 				}]
@@ -218,7 +219,7 @@ module.exports = function (grunt) {
 			htaccess: {
 				files: [{
 					expand: true,
-					dest: '<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/',
+					dest: '<%= outputDir %>/',
 					src: ['.htaccess'],
 					cwd: '<%= pkg.folders.wwwRoot%>'
 				}]
@@ -226,7 +227,7 @@ module.exports = function (grunt) {
 			translations: {
 				files: [{
 					expand: true,
-					dest: '<%=pkg.folders.build + pkg.name + "-" + pkg.version %>/translations/',
+					dest: '<%= outputDir %>/translations/',
 					src: ['*.json'],
 					cwd: '<%= pkg.folders.wwwRoot%>/translations/'
 				}]
