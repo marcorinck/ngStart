@@ -1,18 +1,20 @@
-define(function () {
-	"use strict";
+//jshint module:true
+class NavbarController {
+	constructor($location, $translate) {
+		this.$location = $location;
+		this.$translate = $translate;
+	}
 
-	var NavbarController = function($scope, $location, $translate) {
-		$scope.isActive = function(page) {
-			return page === $location.path();
-		};
+	isActive(page) {
+		return page === this.$location.path();
+	}
 
-		$scope.changeLanguage = function(language) {
-			$translate.use(language);
-		};
+	changeLanguage(language) {
+		this.$translate.use(language);
+	}
 
-	};
+}
 
-	NavbarController.$inject = ["$scope", '$location', '$translate'];
+NavbarController.$inject = ['$location', '$translate'];
 
-	return NavbarController;
-});
+export default NavbarController;

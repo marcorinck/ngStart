@@ -1,14 +1,14 @@
-define(function () {
-	"use strict";
+//jshint module:true
+class NgStartController  {
+	constructor($translate) {
+			this.$translate = $translate;
+	}
 
-	var AboutController = function($scope, $translate) {
+	doSomething() {
+	    this.test = "Tester!";
+	}
+}
 
-		$translate("about.sampletext").then(function(translation) {
-			$scope.about = translation;
-		});
-	};
+NgStartController.$inject = ["$translate"];
 
-	AboutController.$inject = ["$scope", "$translate"];
-
-	return AboutController;
-});
+export default NgStartController;

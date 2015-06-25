@@ -1,9 +1,5 @@
-define(function(){
-	"use strict";
+let configuration = {
+	"system": "prod",
+};
 
-    return {
-        "system": "prod"
-    };
-
-});
-
+export default configuration;

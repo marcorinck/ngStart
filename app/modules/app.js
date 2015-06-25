@@ -1,11 +1,15 @@
-define(['angular', 'config/config', 'angular-route', 'about/about', 'contact/contact', 'navbar/navbar', 'ngstart/ngstart', 'templates',
-		"angular", "translate", "translate-static-loader", "translate-handler-log"],
-	function (angular, config) {
-	"use strict";
+//jshint module:true
+import angular from 'angular';
+import config from 'config/config';
+import 'angular-route';
+import 'about/about';
+import 'contact/contact';
+import 'navbar/navbar';
+import 'ngstart/ngstart';
+import 'templates';
 
-    var app = angular.module("app", config.default.standardAngularModules);
-
-	app.config(['$httpProvider', '$routeProvider', '$translateProvider', function ($httpProvider, $routeProvider, $translateProvider) {
+angular.module("app", config.standardAngularModules)
+	.config(['$httpProvider', '$routeProvider', '$translateProvider', ($httpProvider, $routeProvider, $translateProvider) => {
 		$translateProvider.useStaticFilesLoader({
 			prefix: 'translations/',
 			suffix: '.json'
@@ -15,6 +19,3 @@ define(['angular', 'config/config', 'angular-route', 'about/about', 'contact/con
 
 		$routeProvider.otherwise({redirectTo: '/'});
 	}]);
-
-	return app;
-});

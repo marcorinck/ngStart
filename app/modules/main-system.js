@@ -1,10 +1,12 @@
 (function(System) {
 	"use strict";
 
+	//this file is NOT run through ES6 transpiler, so no ES6 features can't be used (like spreading of arguments in final
+	//importing/loading of modules
+
 	System.config({
 		baseURL: '/app/modules',
 		transpiler: 'babel',
-		// or traceurOptions or typescriptOptions
 		defaultJSExtensions: true,
 		babelOptions: {
 
@@ -28,8 +30,10 @@
 		}
 	});
 
-	System.import("app").then(function() {
-		angular.bootstrap(document, ["app"]);
+	Promise.all(['angular', 'app', 'translate', 'translate-static-loader', 'translate-handler-log'].map(function(x) {
+		return System.import(x);
+	})).then( function(modules) {
+		modules[0].bootstrap(document, ["app"]);
 	});
 })(window.System);
 

@@ -12,7 +12,7 @@
 	<!-- /build -->
 
 </head>
-<body ng-controller="navbarController">
+<body ng-controller="navbarController as navbar">
 
 <div class="navbar navbar-default header">
 	<div class="container">
@@ -27,8 +27,8 @@
 			<!--</ul>-->
 
 
-			<div class="flag flag-de" ng-click="changeLanguage('de_DE')"></div>
-			<div class="flag flag-en" ng-click="changeLanguage('en_EN')"></div>
+			<div class="flag flag-de" ng-click="navbar.changeLanguage('de_DE')"></div>
+			<div class="flag flag-en" ng-click="navbar.changeLanguage('en_EN')"></div>
 		</div>
 	</div>
 </div>
