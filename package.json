@@ -24,7 +24,7 @@
     "grunt-contrib-compress": "0.12.x",
     "grunt-contrib-connect": "0.9.x",
     "grunt-contrib-copy": "0.7.x",
-    "grunt-contrib-jshint": "0.10.x",
+    "grunt-contrib-jshint": "0.11.x",
     "grunt-contrib-less": "0.12.x",
     "grunt-contrib-watch": "0.6.x",
     "grunt-karma": "0.9.x",
@@ -45,5 +45,8 @@
     "jsSource": "app/modules/",
     "externalLibs": "app/external-libs/",
     "testRoot": "test/"
+  },
+  "dependencies": {
+    "babel-core": "^5.6.5"
   }
 }

@@ -1,18 +1,16 @@
-define(["angular", "config/configuration"], function(angular, configuration) {
-   "use strict";
+import angular from 'angular';
+import configuration from 'config/configuration';
 
-    var standardAngularModules = ["ngRoute", "about", 'ngstart', "contact", "navbar", "pascalprecht.translate", "config", "templates"],
-        config = angular.module('config', []);
+let standardAngularModules = ["ngRoute", "about", 'ngstart', "contact", "navbar", "pascalprecht.translate", "config", "templates"],
+    module = angular.module('config', []),
+	config = {
+		standardAngularModules: standardAngularModules
+	};
 
+if (configuration.useMock) {
+	standardAngularModules.push("ngMockE2E");
+}
 
+module.constant("config", configuration);
 
-    if (configuration.useMock) {
-        standardAngularModules.push("ngMockE2E");
-    }
-    configuration.standardAngularModules = standardAngularModules;
-
-    config.constant("config", configuration);
-
-    return configuration;
-
-});
+export default config;

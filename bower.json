@@ -13,7 +13,8 @@
     "almond": "0.2.9",
     "requirejs": "2.1.x",
     "angular-translate": "2.4.x",
-    "angular-translate-loader-static-files": "2.4.x"
+    "angular-translate-loader-static-files": "2.4.x",
+    "system.js": "~0.18.3"
   },
   "devDependencies": {
     "angular-mocks": "1.3.x",
