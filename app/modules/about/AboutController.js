@@ -1,14 +1,8 @@
-define(function () {
-	"use strict";
+class AboutController {
+    constructor($translate) {
+        this.$translate = $translate;
+    }
+}
+AboutController.$inject = ["$translate"];
 
-	var AboutController = function($scope, $translate) {
-
-		$translate("about.sampletext").then(function(translation) {
-			$scope.about = translation;
-		});
-	};
-
-	AboutController.$inject = ["$scope", "$translate"];
-
-	return AboutController;
-});
+export default AboutController;

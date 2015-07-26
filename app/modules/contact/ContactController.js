@@ -1,25 +1,24 @@
-define(function () {
-	"use strict";
+class ContactController {
+    constructor(contactService, config) {
+        this.author = "Marco Rinck";
+        this.email = "marco.rinck@googlemail.com";
+        this.homepage = "https://github.com/marcorinck/ngStart";
+        this.message = contactService.message;
+        this.system = config.system;
+        this.contactService = contactService;
+    }
 
-	var ContactController = function($scope, contactService, config) {
-		$scope.author = "Marco Rinck";
-		$scope.email = "marco.rinck@googlemail.com";
-		$scope.homepage = "https://github.com/marcorinck/ngStart";
-		$scope.message = contactService.message;
+    messageChanged() {
+        this.sent = false;
+    }
 
-		$scope.messageChanged = function() {
-			$scope.sent = false;
-		};
+    sendMessage() {
+        this.contactService.sendMessage();
+        this.sent = true;
+    }
+}
 
-		$scope.sendMessage = function() {
-			contactService.sendMessage();
-			$scope.sent = true;
-		};
+ContactController.$inject = ['ContactService', 'config'];
 
-		$scope.system = config.system;
-	};
+export default ContactController;
 
-	ContactController.$inject = ["$scope", 'ContactService', 'config'];
-
-	return ContactController;
-});

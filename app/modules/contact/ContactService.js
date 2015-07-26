@@ -1,22 +1,14 @@
-define(function () {
-	"use strict";
+class ContactService {
+    constructor() {
+        this.message = {
+            senderName: "",
+            senderMail: "",
+            text: ""
+        };
+    }
+    sendMessage() {
+        console.log("SendMessage called! Message: " + message.text);
+    }
+}
 
-	var ContactService = function() {
-		var message = {
-			senderName: "",
-			senderMail: "",
-			text: ""
-		};
-
-		function sendMessage() {
-			console.log("SendMessage called! Message: " + message.text);
-		}
-
-		return {
-			message: message,
-			sendMessage: sendMessage
-		};
-	};
-
-	return ContactService;
-});
+export default ContactService;

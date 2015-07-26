@@ -33,9 +33,11 @@
     "grunt-processhtml": "0.3.x",
     "grunt-appcache": "0.1.x",
     "grunt-push-release": "0.1.9",
+    "grunt-systemjs-builder": "0.2.x",
     "license-checker": "0.0.x",
     "load-grunt-tasks": "1.0.0",
-    "systemjs": "^0.18.4"
+    "systemjs": "^0.18.4",
+    "systemjs-builder": "0.12.x"
   },
   "engines": {
     "node": "0.10.x"

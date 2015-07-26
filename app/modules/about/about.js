@@ -1,15 +1,14 @@
-define(['angular', 'about/AboutController', 'angular-route' ], function (angular, AboutController) {
-	"use strict";
+import angular from 'angular';
+import AboutController from 'about/AboutController.js';
+import 'angular-route';
 
-	var about = angular.module("about", ['ngRoute']);
+let about = angular.module("about", ['ngRoute']);
 
-	about.config(["$routeProvider", function($routeProvider) {
-		$routeProvider.when('/about/', {
-			templateUrl: "modules/" + 'about/about.html',
-			controller: AboutController
-		});
+about.config(["$routeProvider", function ($routeProvider) {
+    $routeProvider.when('/about/', {
+        templateUrl: "modules/" + 'about/about.html',
+        controller: AboutController
+    });
 
-	}]);
+}]);
 
-	return about;
-});

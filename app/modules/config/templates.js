@@ -13,5 +13,6 @@ import angular from 'angular';
  * see gruntfile.js, ngtemplates Task
  *
  */
+let templates = angular.module("templates", []);
 
-angular.module("templates", []);
+export default templates;
