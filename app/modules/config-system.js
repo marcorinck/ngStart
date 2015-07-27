@@ -12,7 +12,8 @@ System.config({
         'translate': 'external-libs/angular-translate.js',
         'translate-static-loader': 'external-libs/angular-translate-loader-static-files.js',
         'translate-handler-log': 'external-libs/angular-translate-handler-log.js',
-        'babel': 'external-libs/babel-core/browser.js'
+        'babel': 'external-libs/babel-core/browser.js',
+        'babel/external-helpers': 'external-libs/babel-core/external-helpers.js'
     },
     meta: {
         'angular': { deps: [], exports: 'angular' },
